@@ -3,4 +3,49 @@
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
+
+    <!--
+
+    LOGIN
+
+    -->
+
+    <!--  TEXTOS  -->
+    <string name="welcome">Bienvenido de nuevo</string>
+    <string name="sub_welcome">Inicia sesión para continuar</string>
+    <string name="email">Correo</string>
+    <string name="password">Contraseña</string>
+    <string name="message_create">¿Aún no tienes cuenta?</string>
+
+    <!--  TEXTOS  BOTONES -->
+    <string name="loginText">Iniciar sesión</string>
+    <string name="message_forgot_pass">¿Olvidaste tu contraseña?</string>
+    <string name="message_create_account">Crea una</string>
+
+    <!--
+
+    REGISTRO
+
+    -->
+
+    <!--  TEXTOS  -->
+    <string name="welcome_register">Registro</string>
+    <string name="sub_welcome_register">Regístrate para continuar</string>
+    <string name="message_account">¿Ya tienes una cuenta?</string>
+
+    <!--  TEXTOS FORMULARIO -->
+    <string name="name">Nombre</string>
+    <string name="last_name">Apellidos</string>
+    <string name="phone">Número de teléfono (10 dígitos)</string>
+    <string name="emailForm">Correo</string>
+    <string name="birthday">Fecha de nacimiento</string>
+    <string name="male">Hombre</string>
+    <string name="female">Mujer</string>
+    <string name="other">Otro</string>
+    <string name="confirm_pass">Confirmar contraseña</string>
+    <string name="conditions">Acepto los términos y condiciones</string>
+
+    <!--  TEXTOS  BOTONES -->
+    <string name="registerText">Registrarme</string>
+
 </resources>
