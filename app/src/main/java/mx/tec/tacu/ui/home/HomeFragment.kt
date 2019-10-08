@@ -12,6 +12,8 @@ import mx.tec.tacu.R
 
 class HomeFragment : Fragment() {
 
+    /*
+
     private lateinit var homeViewModel: HomeViewModel
 
     override fun onCreateView(
@@ -28,4 +30,6 @@ class HomeFragment : Fragment() {
         })
         return root
     }
+
+     */
 }

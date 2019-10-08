@@ -7,7 +7,7 @@
     android:background="@drawable/loginbackground">
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/registerLogo"
         android:layout_width="250dp"
         android:layout_height="100dp"
         android:layout_gravity="center"
@@ -35,7 +35,7 @@
 
 
                     <TextView
-                        android:id="@+id/textView"
+                        android:id="@+id/textViewRegisterTitle"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/welcome_register"
@@ -47,7 +47,7 @@
                         />
 
                     <TextView
-                        android:id="@+id/textView2"
+                        android:id="@+id/textViewRegisterSubTitle"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/sub_welcome_register"
@@ -66,7 +66,7 @@
                             android:orientation="vertical">
 
                             <EditText
-                                android:id="@+id/editText3"
+                                android:id="@+id/registerName"
                                 android:layout_width="280dp"
                                 android:layout_height="wrap_content"
                                 android:ems="10"
@@ -79,7 +79,7 @@
                                 android:drawablePadding="5dp" />
 
                             <EditText
-                                android:id="@+id/editText4"
+                                android:id="@+id/registerLastName"
                                 android:layout_width="280dp"
                                 android:layout_height="wrap_content"
                                 android:ems="10"
@@ -92,7 +92,7 @@
                                 android:drawablePadding="5dp" />
 
                             <EditText
-                                android:id="@+id/editText5"
+                                android:id="@+id/registerPhone"
                                 android:layout_width="280dp"
                                 android:layout_height="wrap_content"
                                 android:ems="10"
@@ -105,7 +105,7 @@
                                 android:inputType="phone" />
 
                             <EditText
-                                android:id="@+id/editText"
+                                android:id="@+id/registerEmail"
                                 android:layout_width="280dp"
                                 android:layout_height="wrap_content"
                                 android:ems="10"
@@ -118,7 +118,7 @@
                                 android:inputType="textEmailAddress" />
 
                             <EditText
-                                android:id="@+id/editText6"
+                                android:id="@+id/registerBirth"
                                 android:layout_width="280dp"
                                 android:layout_height="wrap_content"
                                 android:ems="10"
@@ -141,7 +141,7 @@
                                 >
 
                                 <CheckBox
-                                    android:id="@+id/register_activity_checkbox_men"
+                                    android:id="@+id/registerMale"
                                     android:layout_width="match_parent"
                                     android:layout_height="match_parent"
                                     android:layout_weight="1"
@@ -149,7 +149,7 @@
                                     android:text="@string/male" />
 
                                 <CheckBox
-                                    android:id="@+id/register_activity_checkbox_women"
+                                    android:id="@+id/registerFemale"
                                     android:layout_width="match_parent"
                                     android:layout_height="match_parent"
                                     android:layout_weight="1"
@@ -157,7 +157,7 @@
                                     android:text="@string/female" />
 
                                 <CheckBox
-                                    android:id="@+id/register_activity_checkbox_other"
+                                    android:id="@+id/registerOther"
                                     android:layout_width="match_parent"
                                     android:layout_height="match_parent"
                                     android:layout_weight="1"
@@ -166,7 +166,7 @@
                             </LinearLayout>
 
                             <EditText
-                                android:id="@+id/editText2"
+                                android:id="@+id/registerPassword"
                                 android:layout_width="280dp"
                                 android:layout_height="wrap_content"
                                 android:ems="10"
@@ -181,7 +181,7 @@
 
 
                             <EditText
-                                android:id="@+id/editText7"
+                                android:id="@+id/registerConfirmPass"
                                 android:layout_width="280dp"
                                 android:layout_height="wrap_content"
                                 android:ems="10"
@@ -195,7 +195,7 @@
                                 android:inputType="textPassword" />
 
                             <CheckBox
-                                android:id="@+id/checkBox"
+                                android:id="@+id/registerConditions"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:text="@string/conditions"
@@ -206,7 +206,7 @@
                                 />
 
                             <Button
-                                android:id="@+id/Login_activity_button_sign_in"
+                                android:id="@+id/btnRegister"
                                 android:layout_width="280dp"
                                 android:layout_height="35dp"
                                 android:layout_marginTop="0dp"
@@ -225,7 +225,7 @@
 
 
                                 <TextView
-                                    android:id="@+id/textView3"
+                                    android:id="@+id/textViewRegisterQuestion"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="1"
@@ -236,7 +236,7 @@
                                     />
 
                                 <Button
-                                    android:id="@+id/button3"
+                                    android:id="@+id/btnRegisterLogIn"
                                     android:layout_weight="1"
                                     android:layout_width="wrap_content"
                                     android:layout_height="20dp"

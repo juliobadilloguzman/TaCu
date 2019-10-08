@@ -12,7 +12,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.fragment_profile)
+        setContentView(R.layout.fragment_home)
 
         /*
         val navView: BottomNavigationView = findViewById(R.id.nav_view)

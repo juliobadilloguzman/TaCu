@@ -48,4 +48,16 @@
     <!--  TEXTOS  BOTONES -->
     <string name="registerText">Registrarme</string>
 
+    <!--
+
+    FRAGMENT_HOME
+
+    -->
+    <!--  TEXTOS  -->
+    <string name="home_welcome">¡Hola, Bienvenido!</string>
+    <string name="home_sub_welcome">Usa tu ubicación actual para encontrar taquerías cerca de ti y empieza a evaluarlas.</string>
+
+    <!--  TEXTOS  BOTONES -->
+    <string name="homeText">Empezar a evaluar</string>
+
 </resources>
