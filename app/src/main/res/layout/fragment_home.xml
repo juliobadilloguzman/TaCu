@@ -1,65 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    >
-
-
-    <ImageView
-        android:id="@+id/loginLogo"
-        android:layout_width="250dp"
-        android:layout_height="100dp"
-        android:layout_gravity="center"
-        android:layout_marginTop="35dp"
-        android:layout_marginBottom="10dp"
-        app:srcCompat="@drawable/logorojo"
-        />
-
-    <ImageView
-        android:id="@+id/loginLogoLocation"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
-        android:layout_gravity="center"
-        android:layout_marginTop="30dp"
-        android:layout_marginBottom="15dp"
-        app:srcCompat="@drawable/icono"
-        />
+    android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/textViewHomeTitle"
+        android:id="@+id/text_home"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:textStyle="bold"
-        android:textSize="24sp"
-        android:padding="10dp"
-        android:text="@string/home_welcome" />
-
-    <TextView
-        android:id="@+id/textViewHomeIndications"
-        android:layout_width="350dp"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:layout_gravity="center"
-        android:text="@string/home_sub_welcome"
-        android:layout_marginBottom="15dp"
-        />
-
-    <Button
-        android:id="@+id/btnHomeEvaluate"
-        android:layout_width="280dp"
-        android:layout_height="35dp"
-        android:layout_marginTop="0dp"
-        android:backgroundTint="@color/colorRed"
-        android:text="@string/homeText"
-        android:layout_marginBottom="15dp"
-        android:layout_gravity="center"
-        android:textAllCaps="true"
-        android:drawableLeft="@drawable/location"
-        android:background="@drawable/background_button"
-        android:textColor="@android:color/white" />
-
-
-</LinearLayout>
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>
