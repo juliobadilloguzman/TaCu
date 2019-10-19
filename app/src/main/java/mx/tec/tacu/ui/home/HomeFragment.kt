@@ -12,7 +12,7 @@ import mx.tec.tacu.R
 
 class HomeFragment : Fragment() {
 
-    /*
+
 
     private lateinit var homeViewModel: HomeViewModel
 
@@ -31,5 +31,5 @@ class HomeFragment : Fragment() {
         return root
     }
 
-     */
+
 }

@@ -10,143 +10,149 @@
 
     <ImageView
         android:id="@+id/loginLogo"
-        android:layout_width="250dp"
-        android:layout_height="100dp"
+        android:layout_width="230dp"
+        android:layout_height="80dp"
         android:layout_gravity="center"
         android:layout_marginTop="35dp"
         android:layout_marginBottom="15dp"
         app:srcCompat="@drawable/logotacoblanco"
         />
 
+        <androidx.cardview.widget.CardView
+            android:layout_width="300dp"
+            android:layout_height="330dp"
+            android:layout_gravity="center"
+            android:elevation="3dp">
 
-
-    <androidx.cardview.widget.CardView
-        android:layout_width="350dp"
-        android:layout_height="380dp"
-        android:layout_gravity="center_horizontal"
-        android:elevation="3dp">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-
-
-            <TextView
-                android:id="@+id/textViewTitle"
+            <LinearLayout
+                android:id="@+id/constraint"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/welcome"
-                android:gravity="center"
-                android:layout_marginTop="40dp"
-                android:textStyle="bold"
-                android:textColor="@color/colorBlack"
-                android:textSize="24sp"
-                />
+                android:layout_height="match_parent"
+                android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/textViewSubTitle"
+            <ScrollView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/sub_welcome"
-                android:gravity="center"
-                android:layout_marginBottom="20dp"
-                />
-
-
-            <EditText
-                android:id="@+id/loginEmail"
-                android:layout_width="280dp"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:hint="@string/email"
-                android:layout_gravity="center"
-                android:drawableStart="@drawable/at"
-                android:drawableTint="@color/colorGrey"
-                android:drawablePadding="5dp"
-                android:inputType="textEmailAddress" />
-
-            <EditText
-                android:id="@+id/loginPassword"
-                android:layout_width="280dp"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:hint="@string/password"
-                android:layout_gravity="center"
-                android:drawableStart="@drawable/lock"
-                android:drawableEnd="@drawable/eye"
-                android:drawableTint="@color/colorGrey"
-                android:drawablePadding="5dp"
-                android:inputType="textPassword" />
-
-
-            <Button
-                android:id="@+id/btnForgetPassword"
-                android:layout_width="280dp"
-                android:layout_height="wrap_content"
-                android:background="@android:color/transparent"
-                android:gravity="end"
-                android:textAllCaps="false"
-                android:layout_gravity="center"
-                android:textColor="@color/colorRed"
-                style="?android:attr/borderlessButtonStyle"
-                android:fontFamily="sans-serif-condensed-light"
-                android:text="@string/message_forgot_pass" />
-
-            <Button
-                android:id="@+id/btnLogIn"
-                android:layout_width="280dp"
-                android:layout_height="35dp"
-                android:layout_marginTop="0dp"
-                android:backgroundTint="@color/colorRed"
-                android:text="@string/loginText"
-                android:layout_marginBottom="15dp"
-                android:layout_gravity="center"
-                android:textAllCaps="true"
-                android:gravity="center"
-                android:background="@drawable/background_button"
-                android:textColor="@android:color/white" />
-
+                android:layout_height="match_parent">
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
-
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
 
                 <TextView
-                    android:id="@+id/textViewQuestion"
-                    android:layout_width="wrap_content"
+                    android:id="@+id/textViewTitle"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="@string/message_create"
-                    android:gravity="end"
-                    android:layout_marginLeft="30dp"
-                    android:layout_marginRight="5dp"
-                    />
+                    android:layout_marginTop="40dp"
+                    android:gravity="center"
+                    android:text="@string/welcome"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="24sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/textViewSubTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="20dp"
+                    android:gravity="center"
+                    android:text="@string/sub_welcome" />
+
+
+                <EditText
+                    android:id="@+id/loginEmail"
+                    android:layout_width="280dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:drawableStart="@drawable/at"
+                    android:drawablePadding="5dp"
+                    android:drawableTint="@color/colorGrey"
+                    android:ems="10"
+                    android:hint="@string/email"
+                    android:inputType="textEmailAddress" />
+
+                <EditText
+                    android:id="@+id/loginPassword"
+                    android:layout_width="280dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:drawableStart="@drawable/lock"
+                    android:drawableEnd="@drawable/eye"
+                    android:drawablePadding="5dp"
+                    android:drawableTint="@color/colorGrey"
+                    android:ems="10"
+                    android:hint="@string/password"
+                    android:inputType="textPassword" />
+
 
                 <Button
-                    android:id="@+id/btnCreateAccount"
-                    android:layout_weight="1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="40dp"
-                    android:gravity="start"
-                    android:textAllCaps="false"
-                    android:textColor="@color/colorRed"
-                    android:fontFamily="sans-serif-condensed-light"
-                    android:text="@string/message_create_account"
+                    android:id="@+id/btnForgetPassword"
                     style="?android:attr/borderlessButtonStyle"
+                    android:layout_width="280dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
                     android:background="@android:color/transparent"
-                    />
+                    android:fontFamily="sans-serif-condensed-light"
+                    android:gravity="end"
+                    android:text="@string/message_forgot_pass"
+                    android:textAllCaps="false"
+                    android:textColor="@color/colorRed" />
+
+                <Button
+                    android:id="@+id/btnLogIn"
+                    android:layout_width="280dp"
+                    android:layout_height="35dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="0dp"
+                    android:layout_marginBottom="15dp"
+                    android:background="@drawable/background_button"
+                    android:backgroundTint="@color/colorRed"
+                    android:gravity="center"
+                    android:text="@string/loginText"
+                    android:textAllCaps="true"
+                    android:textColor="@android:color/white" />
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+
+                    <TextView
+                        android:id="@+id/textViewQuestion"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="30dp"
+                        android:layout_marginRight="5dp"
+                        android:layout_weight="1"
+                        android:gravity="end"
+                        android:text="@string/message_create" />
+
+                    <Button
+                        android:id="@+id/btnCreateAccount"
+                        style="?android:attr/borderlessButtonStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:layout_weight="1"
+                        android:background="@android:color/transparent"
+                        android:fontFamily="sans-serif-condensed-light"
+                        android:gravity="start"
+                        android:text="@string/message_create_account"
+                        android:textAllCaps="false"
+                        android:textColor="@color/colorRed" />
+
+                </LinearLayout>
+            </LinearLayout>
+
+            </ScrollView>
 
             </LinearLayout>
 
-
-        </LinearLayout>
-
+        </androidx.cardview.widget.CardView>
 
 
-    </androidx.cardview.widget.CardView>
+
 
 
 
