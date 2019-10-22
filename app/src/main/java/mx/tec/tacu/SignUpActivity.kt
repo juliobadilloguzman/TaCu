@@ -14,6 +14,7 @@ import com.google.firebase.firestore.CollectionReference
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.register.*
 import mx.tec.tacu.model.Persona
+import org.w3c.dom.Text
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -52,7 +53,7 @@ class SignUpActivity : AppCompatActivity() {
 
         db = FirebaseFirestore.getInstance()
 
-        creacion = SimpleDateFormat("yyyyMMdd_HHmmss").format(Date()).toString()
+        creacion = SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(Date()).toString()
 
         println("CREACION:" + creacion)
 
@@ -77,19 +78,26 @@ class SignUpActivity : AppCompatActivity() {
                Toast.makeText(this, "Acepta los terminos y condiciones", Toast.LENGTH_SHORT).show()
            }
 
+        }
 
-
+        btnRegisterLogIn.setOnClickListener{
+            var intent = Intent(this, LoginActivity::class.java)
+            startActivity(intent)
         }
 
     }
 
     private fun register(nombre: String, apellido: String, numeroTelefono: String, correo: String, fechaNacimiento: String,
     sexo: String, password: String, confirmPassword: String, creacion: String){
+        
 
+        if(!TextUtils.isEmpty(nombre) && !TextUtils.isEmpty(apellido) && !TextUtils.isEmpty(numeroTelefono)
+            && !TextUtils.isEmpty(correo) && !TextUtils.isEmpty(fechaNacimiento) && !TextUtils.isEmpty(sexo)
+            && !TextUtils.isEmpty(password) && !TextUtils.isEmpty(confirmPassword)){
 
+            println("PASEEEE")
 
             //Verificar que las contraseñas sean iguales
-
             if(password != confirmPassword){
                 Toast.makeText(this, "Las contraseñas deben de ser iguales", Toast.LENGTH_SHORT).show()
             }else{
@@ -124,6 +132,12 @@ class SignUpActivity : AppCompatActivity() {
 
                     }
             }
+
+        }else{
+            Toast.makeText(this, "VERIFICA TODOS LOS CAMPOS", Toast.LENGTH_SHORT).show()
+        }
+
+
 
 
 
