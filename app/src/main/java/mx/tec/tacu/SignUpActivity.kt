@@ -89,7 +89,7 @@ class SignUpActivity : AppCompatActivity() {
 
     private fun register(nombre: String, apellido: String, numeroTelefono: String, correo: String, fechaNacimiento: String,
     sexo: String, password: String, confirmPassword: String, creacion: String){
-        
+
 
         if(!TextUtils.isEmpty(nombre) && !TextUtils.isEmpty(apellido) && !TextUtils.isEmpty(numeroTelefono)
             && !TextUtils.isEmpty(correo) && !TextUtils.isEmpty(fechaNacimiento) && !TextUtils.isEmpty(sexo)
