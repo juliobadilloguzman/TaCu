@@ -4,6 +4,10 @@
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
     <string name="title_profile">Perfil</string>
+    <string name="title_taquerias">Taquerias</string>
+    <string name="title_preguntas">Preguntas</string>
+    <string name="title_maps">Mapas</string>
+    <string name="title_ranking">Ranking</string>
 
     <!--
 

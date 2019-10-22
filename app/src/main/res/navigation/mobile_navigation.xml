@@ -29,4 +29,28 @@
         android:label="@string/title_profile"
         tools:layout="@layout/fragment_profile" />
 
+    <fragment
+    android:id="@+id/navigation_taquerias"
+    android:name="mx.tec.tacu.ui.taquerias.TaqueriasFragment"
+    android:label="@string/title_taquerias"
+    tools:layout="@layout/fragment_taquerias" />
+
+    <fragment
+        android:id="@+id/navigation_preguntas"
+        android:name="mx.tec.tacu.ui.questions.PreguntasFragment"
+        android:label="@string/title_preguntas"
+        tools:layout="@layout/fragment_preguntas" />
+
+    <fragment
+        android:id="@+id/navigation_maps"
+        android:name="mx.tec.tacu.ui.maps.MapsFragment"
+        android:label="@string/title_maps"
+        tools:layout="@layout/fragment_maps" />
+
+    <fragment
+        android:id="@+id/navigation_ranking"
+        android:name="mx.tec.tacu.ui.ranking.RankingFragment"
+        android:label="@string/title_ranking"
+        tools:layout="@layout/fragment_ranking" />
+
 </navigation>
