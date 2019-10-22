@@ -70,8 +70,8 @@ class SignUpActivity : AppCompatActivity() {
 
            if(registerConditions.isChecked){
 
-               register(txtNombre.toString(), txtApellidos.toString(), txtNumeroTelefono.toString(), txtCorreo.toString(), txtFechaNacimiento.toString(),
-                   checkSexo, txtPassword.toString(), txtCorreo.toString(), creacion)
+               register(txtNombre.text.toString(), txtApellidos.text.toString(), txtNumeroTelefono.text.toString(), txtCorreo.text.toString(), txtFechaNacimiento.text.toString(),
+                   checkSexo, txtPassword.text.toString(), txtConfirmPassword.text.toString(), creacion)
 
            }else{
                Toast.makeText(this, "Acepta los terminos y condiciones", Toast.LENGTH_SHORT).show()
@@ -81,16 +81,12 @@ class SignUpActivity : AppCompatActivity() {
 
         }
 
-
-
-
     }
 
     private fun register(nombre: String, apellido: String, numeroTelefono: String, correo: String, fechaNacimiento: String,
     sexo: String, password: String, confirmPassword: String, creacion: String){
 
-        if(!TextUtils.isEmpty(nombre) && !TextUtils.isEmpty(apellido) && !TextUtils.isEmpty(numeroTelefono) && !TextUtils.isEmpty(correo)
-            && !TextUtils.isEmpty(fechaNacimiento) && !TextUtils.isEmpty(sexo) && sexo.isNullOrBlank() && sexo.isNullOrEmpty() && !TextUtils.isEmpty(password) && !TextUtils.isEmpty(confirmPassword)){
+
 
             //Verificar que las contraseñas sean iguales
 
@@ -115,6 +111,8 @@ class SignUpActivity : AppCompatActivity() {
 
                                     if(it.isSuccessful){
                                         Toast.makeText(this, "Usuario registrado correctamente", Toast.LENGTH_SHORT).show()
+                                        var intent = Intent(this, HomeLocationActivity::class.java)
+                                        startActivity(intent)
                                     }else{
                                         Toast.makeText(this, "ERROR", Toast.LENGTH_SHORT).show()
                                     }
@@ -128,10 +126,6 @@ class SignUpActivity : AppCompatActivity() {
             }
 
 
-
-        }else{
-            Toast.makeText(this, "Verifica todos los campos", Toast.LENGTH_SHORT).show()
-        }
 
 
     }
