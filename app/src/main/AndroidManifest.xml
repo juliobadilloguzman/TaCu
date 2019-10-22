@@ -11,9 +11,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".HomeLocationActivity"></activity>
-        <activity android:name=".ForgotPasswordActivity" />
-        <activity android:name=".SignUpActivity" />
+        <activity android:name=".HomeLocationActivity" android:windowSoftInputMode="stateVisible|adjustPan" android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity android:name=".ForgotPasswordActivity" android:windowSoftInputMode="stateVisible|adjustPan" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".SignUpActivity" android:windowSoftInputMode="stateVisible|adjustPan" android:theme="@style/AppTheme.NoActionBar"/>
         <activity android:name=".LoginActivity" android:windowSoftInputMode="stateVisible|adjustPan" android:theme="@style/AppTheme.NoActionBar">
 
             <intent-filter>

@@ -119,7 +119,7 @@ class SignUpActivity : AppCompatActivity() {
 
                                     if(it.isSuccessful){
                                         Toast.makeText(this, "Usuario registrado correctamente", Toast.LENGTH_SHORT).show()
-                                        var intent = Intent(this, HomeLocationActivity::class.java)
+                                        var intent = Intent(this, LoginActivity::class.java)
                                         startActivity(intent)
                                     }else{
                                         Toast.makeText(this, "ERROR", Toast.LENGTH_SHORT).show()
