@@ -14,7 +14,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        actionBar?.hide()
+        //Hola
 
         val navView: BottomNavigationView = findViewById(R.id.nav_view)
 
@@ -28,6 +28,7 @@ class MainActivity : AppCompatActivity() {
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
+
 
     }
 

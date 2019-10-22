@@ -14,12 +14,14 @@
         <activity android:name=".HomeLocationActivity"></activity>
         <activity android:name=".ForgotPasswordActivity" />
         <activity android:name=".SignUpActivity" />
-        <activity android:name=".LoginActivity">
+        <activity android:name=".LoginActivity" android:windowSoftInputMode="stateVisible|adjustPan" android:theme="@style/AppTheme.NoActionBar">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
         </activity>
         <activity
             android:name=".MainActivity"
