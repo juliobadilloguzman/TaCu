@@ -1,5 +1,6 @@
 package mx.tec.tacu
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
@@ -7,6 +8,7 @@ import android.util.Log
 import android.widget.EditText
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.firestore.CollectionReference
 import com.google.firebase.firestore.FirebaseFirestore
@@ -96,19 +98,31 @@ class SignUpActivity : AppCompatActivity() {
                 Toast.makeText(this, "Las contraseñas deben de ser iguales", Toast.LENGTH_SHORT).show()
             }else{
 
-                val dbReference: CollectionReference = db.collection("PERSONA")
 
-                val persona = Persona(nombre, apellido, correo, sexo, numeroTelefono, fechaNacimiento, creacion)
-
-                dbReference.add(persona)
+                auth.createUserWithEmailAndPassword(correo, password)
                     .addOnCompleteListener{
 
-                        if(it.isSuccessful){
-                            Toast.makeText(this, "Usuario registrado correctamente", Toast.LENGTH_SHORT).show()
-                        }else{
-                            Toast.makeText(this, "ERROR", Toast.LENGTH_SHORT).show()
-                        }
+                        if(it.isComplete){
 
+                            println("AUTH SUCCESS")
+
+                            val dbReference: CollectionReference = db.collection("PERSONA")
+
+                            val persona = Persona(nombre, apellido, correo, sexo, numeroTelefono, fechaNacimiento, creacion)
+
+                            dbReference.add(persona)
+                                .addOnCompleteListener{
+
+                                    if(it.isSuccessful){
+                                        Toast.makeText(this, "Usuario registrado correctamente", Toast.LENGTH_SHORT).show()
+                                    }else{
+                                        Toast.makeText(this, "ERROR", Toast.LENGTH_SHORT).show()
+                                    }
+
+
+                                }
+
+                        }
 
                     }
             }
