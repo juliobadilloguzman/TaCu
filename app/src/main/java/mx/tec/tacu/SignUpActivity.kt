@@ -95,42 +95,52 @@ class SignUpActivity : AppCompatActivity() {
             && !TextUtils.isEmpty(correo) && !TextUtils.isEmpty(fechaNacimiento) && !TextUtils.isEmpty(sexo)
             && !TextUtils.isEmpty(password) && !TextUtils.isEmpty(confirmPassword)){
 
-            println("PASEEEE")
 
             //Verificar que las contraseñas sean iguales
             if(password != confirmPassword){
                 Toast.makeText(this, "Las contraseñas deben de ser iguales", Toast.LENGTH_SHORT).show()
             }else{
 
-
-                auth.createUserWithEmailAndPassword(correo, password)
+                //Verificar que el usuario exista
+                auth.fetchSignInMethodsForEmail(correo)
                     .addOnCompleteListener{
 
-                        if(it.isComplete){
+                        var exists: Boolean = !it.result!!.signInMethods!!.isEmpty()
 
-                            println("AUTH SUCCESS")
+                        if(exists){
+                            Toast.makeText(this, "El email ya esta en uso", Toast.LENGTH_SHORT).show()
+                        }else{
 
-                            val dbReference: CollectionReference = db.collection("PERSONA")
-
-                            val persona = Persona(nombre, apellido, correo, sexo, numeroTelefono, fechaNacimiento, creacion)
-
-                            dbReference.add(persona)
+                            auth.createUserWithEmailAndPassword(correo, password)
                                 .addOnCompleteListener{
 
-                                    if(it.isSuccessful){
-                                        Toast.makeText(this, "Usuario registrado correctamente", Toast.LENGTH_SHORT).show()
-                                        var intent = Intent(this, LoginActivity::class.java)
-                                        startActivity(intent)
-                                    }else{
-                                        Toast.makeText(this, "ERROR", Toast.LENGTH_SHORT).show()
+                                    if(it.isComplete){
+
+                                        val dbReference: CollectionReference = db.collection("PERSONA")
+
+                                        val persona = Persona(nombre, apellido, correo, sexo, numeroTelefono, fechaNacimiento, creacion)
+
+                                        dbReference.add(persona)
+                                            .addOnCompleteListener{
+
+                                                if(it.isSuccessful){
+                                                    Toast.makeText(this, "Usuario registrado correctamente", Toast.LENGTH_SHORT).show()
+                                                    var intent = Intent(this, LoginActivity::class.java)
+                                                    startActivity(intent)
+                                                }else{
+                                                    Toast.makeText(this, "ERROR al registrar usuario", Toast.LENGTH_SHORT).show()
+                                                }
+
+
+                                            }
+
                                     }
 
-
                                 }
-
                         }
 
                     }
+
             }
 
         }else{
