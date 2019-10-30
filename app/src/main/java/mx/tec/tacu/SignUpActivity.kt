@@ -114,17 +114,19 @@ class SignUpActivity : AppCompatActivity() {
                             auth.createUserWithEmailAndPassword(correo, password)
                                 .addOnCompleteListener{
 
-                                    if(it.isComplete){
+                                    if(it.isSuccessful){
 
                                         val dbReference: CollectionReference = db.collection("PERSONA")
 
-                                        val persona = Persona(nombre, apellido, correo, sexo, numeroTelefono, fechaNacimiento, creacion)
+                                        val persona = Persona(FirebaseAuth.getInstance().currentUser!!.uid, nombre, apellido, correo, sexo, numeroTelefono, fechaNacimiento, creacion)
 
                                         dbReference.add(persona)
                                             .addOnCompleteListener{
 
                                                 if(it.isSuccessful){
                                                     Toast.makeText(this, "Usuario registrado correctamente", Toast.LENGTH_SHORT).show()
+
+
                                                     var intent = Intent(this, LoginActivity::class.java)
                                                     startActivity(intent)
                                                 }else{

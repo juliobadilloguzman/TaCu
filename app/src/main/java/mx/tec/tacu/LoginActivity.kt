@@ -8,6 +8,8 @@ import android.text.TextUtils
 import android.widget.EditText
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.login.*
 
 class LoginActivity : AppCompatActivity() {
@@ -18,6 +20,7 @@ class LoginActivity : AppCompatActivity() {
 
     //Shared Preferences
     private var EMPTY = ""
+    private var ID = "id"
     private var EMAIL = "email"
     private var PASSWORD = "password"
     private var myPreferences = "myPreferences"
@@ -57,11 +60,16 @@ class LoginActivity : AppCompatActivity() {
                     auth.signInWithEmailAndPassword(txtEmail.text.toString(), txtPassword.text.toString())
                         .addOnCompleteListener{
 
+
+
                             //Verificamos si
                             if(it.isSuccessful){
 
+                                val id: String = FirebaseAuth.getInstance().currentUser!!.uid
+
                                 //Agregar los datos al shared preferences
                                 with(sharedPreferences.edit()){
+                                    putString(ID, id)
                                     putString(EMAIL, txtEmail.text.toString())
                                     putString(PASSWORD, txtPassword.text.toString())
                                     commit()
@@ -72,9 +80,7 @@ class LoginActivity : AppCompatActivity() {
 
 
                             }else{
-
                                 Toast.makeText(this, "Datos invalidos", Toast.LENGTH_SHORT).show()
-
                             }
 
 

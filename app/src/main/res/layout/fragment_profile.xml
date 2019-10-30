@@ -30,12 +30,11 @@
             android:padding="20dp">
 
             <TextView
-                android:id="@+id/textView2"
+                android:id="@+id/titulo_nombreMenu"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center_horizontal"
                 android:paddingBottom="5dp"
-                android:text="Julio Badillo"
                 android:textColor="#FFFFFF" />
 
             <LinearLayout
@@ -45,11 +44,10 @@
                 android:padding="5dp">
 
                 <TextView
-                    android:id="@+id/textView4"
+                    android:id="@+id/titulo_correoMenu"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="juliobadilloguzman@gmail.com"
                     android:textColor="#FFFFFF" />
 
                 <TextView
@@ -61,11 +59,10 @@
                     android:textColor="#FFFFFF" />
 
                 <TextView
-                    android:id="@+id/textView5"
+                    android:id="@+id/titulo_telefonoMenu"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="77783993920"
                     android:textColor="#FFFFFF" />
             </LinearLayout>
 
@@ -93,7 +90,7 @@
 
 
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="horizontal">
 
@@ -101,31 +98,17 @@
                     android:id="@+id/nombre-image"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center"
                     android:layout_weight="0"
                     app:srcCompat="@drawable/profile24" />
 
-                <TextView
+                <EditText
                     android:id="@+id/nombreMenu"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="3dp"
-                    android:text="Julio" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_gravity="end"
-                android:gravity="end"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/btnEditarNombre"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:gravity="end"
-                    android:text="Editar" />
+                    android:layout_weight="0"
+                    android:ems="10"
+                    android:inputType="textPersonName" />
             </LinearLayout>
 
         </LinearLayout>
@@ -140,7 +123,7 @@
 
 
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="horizontal">
 
@@ -148,31 +131,18 @@
                     android:id="@+id/apellido-image"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center"
                     android:layout_weight="0"
                     app:srcCompat="@drawable/apellido242" />
 
-                <TextView
+                <EditText
                     android:id="@+id/apellidoMenu"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="3dp"
-                    android:text="Badillo" />
-            </LinearLayout>
+                    android:layout_weight="0"
+                    android:ems="10"
+                    android:inputType="textPersonName" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_gravity="end"
-                android:gravity="end"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/btnEditarApellido"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:gravity="end"
-                    android:text="Editar" />
             </LinearLayout>
 
         </LinearLayout>
@@ -186,7 +156,7 @@
 
 
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="horizontal">
 
@@ -196,28 +166,14 @@
                     android:layout_weight="0"
                     app:srcCompat="@drawable/phone24" />
 
-                <TextView
+                <EditText
                     android:id="@+id/telefonoMenu"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="3dp"
-                    android:text="777894949" />
-            </LinearLayout>
+                    android:layout_weight="0"
+                    android:ems="10"
+                    android:inputType="textPersonName" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_gravity="end"
-                android:gravity="end"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/btnEditarTelefono"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:gravity="end"
-                    android:text="Editar" />
             </LinearLayout>
 
         </LinearLayout>
@@ -231,7 +187,7 @@
 
 
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="horizontal">
 
@@ -241,28 +197,14 @@
                     android:layout_weight="0"
                     app:srcCompat="@drawable/email24" />
 
-                <TextView
+                <EditText
                     android:id="@+id/correoMenu"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="3dp"
-                    android:text="Badillo" />
-            </LinearLayout>
+                    android:layout_weight="0"
+                    android:ems="10"
+                    android:inputType="textPersonName" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_gravity="end"
-                android:gravity="end"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/btnEditarCorreo"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:gravity="end"
-                    android:text="Editar" />
             </LinearLayout>
 
         </LinearLayout>
@@ -276,7 +218,7 @@
 
 
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="horizontal">
 
@@ -286,28 +228,14 @@
                     android:layout_weight="0"
                     app:srcCompat="@drawable/gender24" />
 
-                <TextView
+                <EditText
                     android:id="@+id/generoMenu"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="3dp"
-                    android:text="Badillo" />
-            </LinearLayout>
+                    android:layout_weight="0"
+                    android:ems="10"
+                    android:inputType="textPersonName" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_gravity="end"
-                android:gravity="end"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/btnEditarGenero"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:gravity="end"
-                    android:text="Editar" />
             </LinearLayout>
 
         </LinearLayout>
@@ -322,7 +250,7 @@
 
 
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="horizontal">
 
@@ -332,28 +260,15 @@
                     android:layout_weight="0"
                     app:srcCompat="@drawable/pass24" />
 
-                <TextView
+                <EditText
                     android:id="@+id/passwordMenu"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="3dp"
-                    android:text="*********" />
-            </LinearLayout>
+                    android:layout_weight="0"
+                    android:ems="10"
+                    android:inputType="textPersonName"
+                    android:text="*******" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_gravity="end"
-                android:gravity="end"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/btnEditarPassword"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:gravity="end"
-                    android:text="Editar" />
             </LinearLayout>
 
         </LinearLayout>
