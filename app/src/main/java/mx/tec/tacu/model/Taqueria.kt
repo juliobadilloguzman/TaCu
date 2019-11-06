@@ -1,7 +1,9 @@
 package mx.tec.tacu.model
 
-data class Taqueria(val nombre: String, val eslogan: String, val precioOrden: String, val precioUnitario: String) {
+import com.google.firebase.firestore.GeoPoint
 
-    constructor(): this("", "", "", "")
+data class Taqueria(val nombre: String, val telefono: String, val descripcion: String, val calificacion: Double, val horario: String, val imagen: String, val latitud: Double, val longitud: Double) {
+
+    constructor(): this("", "", "", 0.0, "", "", 0.0, 0.0)
 
 }
