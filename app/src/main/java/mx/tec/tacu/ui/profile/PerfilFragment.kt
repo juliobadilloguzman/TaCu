@@ -61,9 +61,7 @@ class PerfilFragment : Fragment() {
 
 
         //Base de datos
-        var db: FirebaseFirestore
-
-        db = FirebaseFirestore.getInstance()
+        val db: FirebaseFirestore = FirebaseFirestore.getInstance()
 
         val reference = db.collection("PERSONA").whereEqualTo("id", id)
 
@@ -78,7 +76,6 @@ class PerfilFragment : Fragment() {
             //Convertimos a json la respuesta
             for(document in documents)
                 persona = json.toJson(document.data).toString()
-
 
             //Almanacenaremos la persona
             var personFinal = Persona()
