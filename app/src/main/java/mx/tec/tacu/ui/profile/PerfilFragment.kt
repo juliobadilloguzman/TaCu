@@ -22,9 +22,6 @@ import mx.tec.tacu.LoginActivity
 import mx.tec.tacu.R
 import mx.tec.tacu.model.Persona
 
-
-
-
 class PerfilFragment : Fragment() {
 
     override fun onCreateView(
@@ -124,8 +121,6 @@ class PerfilFragment : Fragment() {
             activity!!.finish()
 
         }
-
-
 
         return root
     }
