@@ -5,6 +5,8 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
+import android.view.WindowManager
+import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
@@ -29,7 +31,9 @@ class LoginActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-         val sharedPreferences = getSharedPreferences(myPreferences, Context.MODE_PRIVATE)
+        val sharedPreferences = getSharedPreferences(myPreferences, Context.MODE_PRIVATE)
+
+        hideKeyboard()
 
         //Verificar que haya un usuario
         if(sharedPreferences.getString(EMAIL, EMPTY) != EMPTY){
@@ -109,8 +113,17 @@ class LoginActivity : AppCompatActivity() {
 
         }
 
+    }
 
-
+    fun hideKeyboard() {
+        val view = this.currentFocus
+        if (view != null) {
+            val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+            imm.hideSoftInputFromWindow(view.windowToken, 0)
+        }
+        // else {
+        window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN)
+        // }
     }
 
 

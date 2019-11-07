@@ -1,11 +1,14 @@
 package mx.tec.tacu
 
 import android.app.DatePickerDialog
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
 import android.util.Log
+import android.view.WindowManager
+import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
@@ -38,6 +41,8 @@ class SignUpActivity : AppCompatActivity() {
 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.register)
+
+        hideKeyboard()
 
         //Inicializacion de datos
         txtNombre = findViewById(R.id.registerName)
@@ -167,4 +172,16 @@ class SignUpActivity : AppCompatActivity() {
             Toast.makeText(this, "VERIFICA TODOS LOS CAMPOS", Toast.LENGTH_SHORT).show()
         }
     }
+
+    fun hideKeyboard() {
+        val view = this.currentFocus
+        if (view != null) {
+            val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+            imm.hideSoftInputFromWindow(view.windowToken, 0)
+        }
+        // else {
+        window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN)
+        // }
+    }
+
 }
