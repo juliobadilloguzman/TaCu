@@ -64,6 +64,11 @@
                             android:layout_height="wrap_content"
                             android:orientation="vertical">
 
+                            <!--NOMBRE-->
+                            <!--NAPELLIDO-->
+                            <!--TELEFONO-->
+
+
                             <EditText
                                 android:id="@+id/registerName"
                                 android:layout_width="280dp"

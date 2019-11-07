@@ -43,7 +43,7 @@
                     android:id="@+id/textViewTitle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="40dp"
+                    android:layout_marginTop="10dp"
                     android:gravity="center"
                     android:text="@string/welcome"
                     android:textColor="@color/colorBlack"
@@ -59,30 +59,39 @@
                     android:text="@string/sub_welcome" />
 
 
-                <EditText
-                    android:id="@+id/loginEmail"
-                    android:layout_width="280dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:drawableStart="@drawable/at"
-                    android:drawablePadding="5dp"
-                    android:drawableTint="@color/colorGrey"
-                    android:ems="10"
-                    android:hint="@string/email"
-                    android:inputType="textEmailAddress" />
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
 
-                <EditText
-                    android:id="@+id/loginPassword"
-                    android:layout_width="280dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:drawableStart="@drawable/lock"
-                    android:drawableEnd="@drawable/eye"
-                    android:drawablePadding="5dp"
-                    android:drawableTint="@color/colorGrey"
-                    android:ems="10"
-                    android:hint="@string/password"
-                    android:inputType="textPassword" />
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/loginEmail"
+                        android:layout_width="280dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:drawableStart="@drawable/at"
+                        android:drawablePadding="5dp"
+                        android:drawableTint="@color/colorGrey"
+                        android:ems="10"
+                        android:hint="@string/email" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:passwordToggleEnabled="true">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/loginPassword"
+                        android:layout_width="280dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:drawableStart="@drawable/lock"
+                        android:drawablePadding="5dp"
+                        android:drawableTint="@color/colorGrey"
+                        android:ems="10"
+                        android:hint="@string/password"
+                        android:inputType="textPassword" />
+                </com.google.android.material.textfield.TextInputLayout>
 
 
                 <Button
