@@ -1,5 +1,6 @@
 package mx.tec.tacu
 
+import android.app.DatePickerDialog
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -14,7 +15,6 @@ import com.google.firebase.firestore.CollectionReference
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.register.*
 import mx.tec.tacu.model.Persona
-import org.w3c.dom.Text
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -30,7 +30,6 @@ class SignUpActivity : AppCompatActivity() {
     private lateinit var creacion: String
     private lateinit var txtPassword: EditText
     private lateinit var txtConfirmPassword: EditText
-    private var checkTerminos: Boolean = false
     private lateinit var auth: FirebaseAuth
     private lateinit var db: FirebaseFirestore
 
@@ -53,7 +52,26 @@ class SignUpActivity : AppCompatActivity() {
 
         db = FirebaseFirestore.getInstance()
 
+        val cal = Calendar.getInstance()
+
         creacion = SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(Date()).toString()
+
+        val dateSetListener = DatePickerDialog.OnDateSetListener { view, year, monthOfYear, dayOfMonth ->
+            cal.set(Calendar.YEAR, year)
+            cal.set(Calendar.MONTH, monthOfYear)
+            cal.set(Calendar.DAY_OF_MONTH, dayOfMonth)
+
+            val myFormat = "dd-MM-yyyy" // mention the format you need
+            val sdf = SimpleDateFormat(myFormat, Locale.US)
+            registerBirth.setText(sdf.format(cal.time))
+        }
+
+        registerBirth.setOnClickListener {
+            DatePickerDialog(this@SignUpActivity, dateSetListener,
+                cal.get(Calendar.YEAR),
+                cal.get(Calendar.MONTH),
+                cal.get(Calendar.DAY_OF_MONTH)).show()
+        }
 
         println("CREACION:" + creacion)
 
@@ -81,7 +99,7 @@ class SignUpActivity : AppCompatActivity() {
         }
 
         btnRegisterLogIn.setOnClickListener{
-            var intent = Intent(this, LoginActivity::class.java)
+            val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
         }
 
@@ -127,7 +145,7 @@ class SignUpActivity : AppCompatActivity() {
                                                     Toast.makeText(this, "Usuario registrado correctamente", Toast.LENGTH_SHORT).show()
 
 
-                                                    var intent = Intent(this, LoginActivity::class.java)
+                                                    val intent = Intent(this, LoginActivity::class.java)
                                                     startActivity(intent)
                                                 }else{
                                                     Toast.makeText(this, "ERROR al registrar usuario", Toast.LENGTH_SHORT).show()
@@ -148,11 +166,5 @@ class SignUpActivity : AppCompatActivity() {
         }else{
             Toast.makeText(this, "VERIFICA TODOS LOS CAMPOS", Toast.LENGTH_SHORT).show()
         }
-
-
-
-
-
-
     }
 }

@@ -37,13 +37,14 @@
     <string name="welcome_register">Registro</string>
     <string name="sub_welcome_register">Regístrate para continuar</string>
     <string name="message_account">¿Ya tienes una cuenta?</string>
+    <string name="genre">Género:</string>
 
     <!--  TEXTOS FORMULARIO -->
     <string name="name">Nombre</string>
     <string name="last_name">Apellidos</string>
     <string name="phone">Número de teléfono (10 dígitos)</string>
     <string name="emailForm">Correo</string>
-    <string name="birthday">Fecha de nacimiento (dd-mm-yyyy)</string>
+    <string name="birthday">Fecha de nacimiento</string>
     <string name="male">Hombre</string>
     <string name="female">Mujer</string>
     <string name="other">Otro</string>

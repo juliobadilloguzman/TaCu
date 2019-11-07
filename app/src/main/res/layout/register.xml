@@ -19,7 +19,7 @@
 
     <androidx.cardview.widget.CardView
         android:layout_width="300dp"
-        android:layout_height="330dp"
+        android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:elevation="3dp">
 
@@ -65,61 +65,86 @@
                             android:orientation="vertical">
 
                             <!--NOMBRE-->
-                            <!--NAPELLIDO-->
+
+                            <com.google.android.material.textfield.TextInputLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent">
+
+                                <com.google.android.material.textfield.TextInputEditText
+                                    android:id="@+id/registerName"
+                                    android:layout_width="280dp"
+                                    android:layout_height="wrap_content"
+                                    android:ems="10"
+                                    android:inputType="textPersonName"
+                                    android:hint="@string/name"
+                                    android:layout_gravity="center"
+                                    android:drawableStart="@drawable/user"
+                                    android:drawableTint="@color/colorGrey"
+                                    android:textSize="16sp"
+                                    android:drawablePadding="5dp" />
+                            </com.google.android.material.textfield.TextInputLayout>
+
+                            <!--APELLIDO-->
+
+                            <com.google.android.material.textfield.TextInputLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent">
+
+                                <com.google.android.material.textfield.TextInputEditText
+                                    android:id="@+id/registerLastName"
+                                    android:layout_width="280dp"
+                                    android:layout_height="wrap_content"
+                                    android:ems="10"
+                                    android:inputType="textPersonName"
+                                    android:hint="@string/last_name"
+                                    android:layout_gravity="center"
+                                    android:drawableStart="@drawable/user"
+                                    android:drawableTint="@color/colorGrey"
+                                    android:textSize="16sp"
+                                    android:drawablePadding="5dp" />
+                            </com.google.android.material.textfield.TextInputLayout>
+
                             <!--TELEFONO-->
 
+                            <com.google.android.material.textfield.TextInputLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent">
 
-                            <EditText
-                                android:id="@+id/registerName"
-                                android:layout_width="280dp"
-                                android:layout_height="wrap_content"
-                                android:ems="10"
-                                android:inputType="textPersonName"
-                                android:hint="@string/name"
-                                android:layout_gravity="center"
-                                android:drawableStart="@drawable/user"
-                                android:drawableTint="@color/colorGrey"
-                                android:textSize="16sp"
-                                android:drawablePadding="5dp" />
+                                <com.google.android.material.textfield.TextInputEditText
+                                    android:id="@+id/registerPhone"
+                                    android:layout_width="280dp"
+                                    android:layout_height="wrap_content"
+                                    android:ems="10"
+                                    android:hint="@string/phone"
+                                    android:layout_gravity="center"
+                                    android:drawableStart="@drawable/phone"
+                                    android:drawableTint="@color/colorGrey"
+                                    android:drawablePadding="5dp"
+                                    android:textSize="16sp"
+                                    android:inputType="phone" />
+                            </com.google.android.material.textfield.TextInputLayout>
 
-                            <EditText
-                                android:id="@+id/registerLastName"
-                                android:layout_width="280dp"
-                                android:layout_height="wrap_content"
-                                android:ems="10"
-                                android:inputType="textPersonName"
-                                android:hint="@string/last_name"
-                                android:layout_gravity="center"
-                                android:drawableStart="@drawable/user"
-                                android:drawableTint="@color/colorGrey"
-                                android:textSize="16sp"
-                                android:drawablePadding="5dp" />
+                            <!--CORREO-->
 
-                            <EditText
-                                android:id="@+id/registerPhone"
-                                android:layout_width="280dp"
-                                android:layout_height="wrap_content"
-                                android:ems="10"
-                                android:hint="@string/phone"
-                                android:layout_gravity="center"
-                                android:drawableStart="@drawable/phone"
-                                android:drawableTint="@color/colorGrey"
-                                android:drawablePadding="5dp"
-                                android:textSize="16sp"
-                                android:inputType="phone" />
+                            <com.google.android.material.textfield.TextInputLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent">
 
-                            <EditText
-                                android:id="@+id/registerEmail"
-                                android:layout_width="280dp"
-                                android:layout_height="wrap_content"
-                                android:ems="10"
-                                android:hint="@string/email"
-                                android:layout_gravity="center"
-                                android:drawableStart="@drawable/at"
-                                android:drawableTint="@color/colorGrey"
-                                android:drawablePadding="5dp"
-                                android:textSize="16sp"
-                                android:inputType="textEmailAddress" />
+                                <com.google.android.material.textfield.TextInputEditText
+                                    android:id="@+id/registerEmail"
+                                    android:layout_width="280dp"
+                                    android:layout_height="wrap_content"
+                                    android:ems="10"
+                                    android:hint="@string/email"
+                                    android:layout_gravity="center"
+                                    android:drawableStart="@drawable/at"
+                                    android:drawableTint="@color/colorGrey"
+                                    android:drawablePadding="5dp"
+                                    android:textSize="16sp"
+                                    android:inputType="textEmailAddress" />
+                            </com.google.android.material.textfield.TextInputLayout>
+
+                            <!--FECHA DE NACIMIENTO-->
 
                             <EditText
                                 android:id="@+id/registerBirth"
@@ -132,7 +157,22 @@
                                 android:drawableTint="@color/colorGrey"
                                 android:drawablePadding="5dp"
                                 android:textSize="16sp"
-                                android:inputType="date" />
+                                android:inputType="date"
+                                android:focusable="false"
+                                android:clickable="true"/>
+
+                            <!--GENERO-->
+
+                            <TextView
+                                android:id="@+id/textViewGenre"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:padding="3dp"
+                                android:gravity="left"
+                                android:textSize="16sp"
+                                android:layout_marginStart="15dp"
+                                android:layout_weight="1"
+                                android:text="@string/genre" />
 
                             <LinearLayout
                                 android:layout_width="match_parent"
@@ -141,7 +181,7 @@
                                 android:orientation="horizontal"
                                 android:layout_marginTop="10dp"
                                 android:layout_marginBottom="10dp"
-                                android:layout_marginLeft="45dp"
+                                android:layout_marginLeft="10dp"
                                 >
 
                                 <RadioGroup
@@ -150,98 +190,92 @@
                                     android:layout_weight="1"
                                     android:orientation="horizontal">
 
+                                    <RadioButton
+                                        android:id="@+id/registerMale"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1"
+                                        android:textColor="@color/colorGrey"
+                                        android:text="@string/male" />
 
-                                        <RadioButton
-                                            android:id="@+id/registerMale"
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            android:layout_weight="1"
-                                            android:text="Hombre" />
+                                    <RadioButton
+                                        android:id="@+id/registerFemale"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1"
+                                        android:textColor="@color/colorGrey"
+                                        android:text="@string/female" />
 
-                                        <RadioButton
-                                            android:id="@+id/registerFemale"
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            android:layout_weight="1"
-                                            android:text="Mujer" />
-
-                                        <RadioButton
-                                            android:id="@+id/registerOther"
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            android:layout_weight="1"
-                                            android:text="Otro" />
+                                    <RadioButton
+                                        android:id="@+id/registerOther"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1"
+                                        android:textColor="@color/colorGrey"
+                                        android:text="@string/other" />
 
                                 </RadioGroup>
-
-                                <!--<CheckBox
-                                    android:id="@+id/registerMale"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="match_parent"
-                                    android:layout_weight="1"
-                                    android:textColor="@color/colorGrey"
-                                    android:text="@string/male" />
-
-                                <CheckBox
-                                    android:id="@+id/registerFemale"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="match_parent"
-                                    android:layout_weight="1"
-                                    android:textColor="@color/colorGrey"
-                                    android:text="@string/female" />
-
-                                <CheckBox
-                                    android:id="@+id/registerOther"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="match_parent"
-                                    android:layout_weight="1"
-                                    android:textColor="@color/colorGrey"
-                                    android:text="@string/other" />-->
-
-
-
-
                             </LinearLayout>
 
-                            <EditText
-                                android:id="@+id/registerPassword"
-                                android:layout_width="280dp"
-                                android:layout_height="wrap_content"
-                                android:ems="10"
-                                android:hint="@string/password"
-                                android:layout_gravity="center"
-                                android:textSize="16sp"
-                                android:drawableStart="@drawable/lock"
-                                android:drawableEnd="@drawable/eye"
-                                android:drawableTint="@color/colorGrey"
-                                android:drawablePadding="5dp"
-                                android:inputType="textPassword" />
+                            <!--CONTRASEÑA-->
 
+                            <com.google.android.material.textfield.TextInputLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                app:passwordToggleEnabled="true">
 
-                            <EditText
-                                android:id="@+id/registerConfirmPass"
-                                android:layout_width="280dp"
-                                android:layout_height="wrap_content"
-                                android:ems="10"
-                                android:hint="@string/confirm_pass"
-                                android:layout_gravity="center"
-                                android:drawableStart="@drawable/lock"
-                                android:drawableEnd="@drawable/eye"
-                                android:drawableTint="@color/colorGrey"
-                                android:drawablePadding="5dp"
-                                android:textSize="16sp"
-                                android:inputType="textPassword" />
+                                <com.google.android.material.textfield.TextInputEditText
+                                    android:id="@+id/registerPassword"
+                                    android:layout_width="280dp"
+                                    android:layout_height="wrap_content"
+                                    android:ems="10"
+                                    android:hint="@string/password"
+                                    android:layout_gravity="center"
+                                    android:textSize="16sp"
+                                    android:drawableStart="@drawable/lock"
+                                    android:drawableTint="@color/colorGrey"
+                                    android:drawablePadding="5dp"
+                                    android:inputType="textPassword" />
+                            </com.google.android.material.textfield.TextInputLayout>
+
+                            <!--CONFIRMAR-->
+
+                            <com.google.android.material.textfield.TextInputLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                app:passwordToggleEnabled="true">
+
+                                <com.google.android.material.textfield.TextInputEditText
+                                    android:id="@+id/registerConfirmPass"
+                                    android:layout_width="280dp"
+                                    android:layout_height="wrap_content"
+                                    android:ems="10"
+                                    android:hint="@string/confirm_pass"
+                                    android:layout_gravity="center"
+                                    android:drawableStart="@drawable/lock"
+                                    android:drawableEnd="@drawable/eye"
+                                    android:drawableTint="@color/colorGrey"
+                                    android:drawablePadding="5dp"
+                                    android:textSize="16sp"
+                                    android:inputType="textPassword" />
+                            </com.google.android.material.textfield.TextInputLayout>
+
+                            <!--TERMINOS Y CONDICIONES-->
 
                             <CheckBox
                                 android:id="@+id/registerConditions"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:text="@string/conditions"
+                                android:fontFamily="sans-serif-condensed-light"
+                                android:textColor="#00D0FF"
+                                android:textStyle="bold"
                                 android:layout_marginTop="10dp"
                                 android:layout_marginBottom="10dp"
-                                android:textColor="@color/colorGrey"
                                 android:layout_marginLeft="35dp"
                                 />
+
+                            <!--REGISTRARME-->
 
                             <Button
                                 android:id="@+id/btnRegister"
@@ -255,6 +289,7 @@
                                 android:layout_gravity="center"
                                 android:textColor="@android:color/white" />
 
+                            <!--YA TIENES CUENTA-->
 
                             <LinearLayout
                                 android:layout_width="match_parent"
