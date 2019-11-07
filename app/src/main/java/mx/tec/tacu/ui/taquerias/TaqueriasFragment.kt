@@ -26,6 +26,19 @@ class TaqueriasFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
+
+
+        /*
+        *
+        *
+        *
+
+        *
+        *
+        * */
+
+
+
         val root = inflater.inflate(R.layout.fragment_taquerias, container, false)
 
         val db: FirebaseFirestore = FirebaseFirestore.getInstance()
