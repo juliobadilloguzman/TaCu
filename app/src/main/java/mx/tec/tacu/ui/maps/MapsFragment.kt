@@ -1,5 +1,6 @@
 package mx.tec.tacu.ui.maps
 
+import android.Manifest
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
@@ -13,6 +14,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
 import com.google.android.gms.maps.CameraUpdateFactory
@@ -33,6 +35,7 @@ class MapsFragment : Fragment(), OnMapReadyCallback {
 
     private lateinit var mMap: GoogleMap
     private lateinit var fusedLocationClient: FusedLocationProviderClient
+    //private var mMap: GoogleMap? = null
 
     private lateinit var mDatabase2: FirebaseFirestore
 
@@ -155,7 +158,7 @@ class MapsFragment : Fragment(), OnMapReadyCallback {
 
         mDatabase2 = FirebaseFirestore.getInstance()
 
-        //currentPosition()
+        currentPosition()
 
         return root
     }
