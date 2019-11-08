@@ -34,10 +34,13 @@ class ElementoAdapter(var list: ArrayList<Taqueria>): RecyclerView.Adapter<Eleme
             val calificacion: RatingBar =itemView.findViewById(R.id.ratingBarTaqueria)
             val image: ImageView =itemView.findViewById(R.id.imageViewTaqueria)
 
+
+
             nombre.text=data.nombre
             calificacion.rating=data.calificacion.toFloat()
-            println("LA IMAGEN ES: "+ data.imagen)
             Picasso.get().load(data.imagen).into(image)
+
+            calificacion.isFocusable = false
 
         }
 
