@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.RatingBar
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
@@ -30,11 +31,12 @@ class ElementoAdapter(var list: ArrayList<Taqueria>): RecyclerView.Adapter<Eleme
         fun bindItems(data:Taqueria){
 
             val nombre: TextView =itemView.findViewById(R.id.nameTaqueria)
-            val calificacion: TextView =itemView.findViewById(R.id.ratingBarTaqueria)
+            val calificacion: RatingBar =itemView.findViewById(R.id.ratingBarTaqueria)
             val image: ImageView =itemView.findViewById(R.id.imageViewTaqueria)
 
             nombre.text=data.nombre
-            calificacion.text=data.calificacion.toString()
+            calificacion.rating=data.calificacion.toFloat()
+            println("LA IMAGEN ES: "+ data.imagen)
             Picasso.get().load(data.imagen).into(image)
 
         }

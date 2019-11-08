@@ -7,12 +7,15 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.GeoPoint
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 
 import mx.tec.tacu.R
+import mx.tec.tacu.adapter.ElementoAdapter
 import mx.tec.tacu.model.Taqueria
 import org.json.JSONArray
 import org.json.JSONObject
@@ -75,6 +78,13 @@ class TaqueriasFragment : Fragment() {
                 }
 
                 println(listTaquerias)
+
+                val myRecycleView : RecyclerView = root.findViewById(R.id.listaTaquerias)
+                myRecycleView.layoutManager=GridLayoutManager(activity, 2,RecyclerView.VERTICAL, false)
+
+                val adapter= ElementoAdapter(listTaquerias)
+                myRecycleView.adapter=adapter
+
 
 
             }
