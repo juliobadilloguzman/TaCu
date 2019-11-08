@@ -2,6 +2,7 @@ package mx.tec.tacu
 
 import android.content.Context
 import android.content.Intent
+import android.content.pm.PackageManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
@@ -9,6 +10,7 @@ import android.view.WindowManager
 import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
 import android.widget.Toast
+import androidx.core.app.ActivityCompat
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.firestore.FirebaseFirestore
@@ -26,6 +28,7 @@ class LoginActivity : AppCompatActivity() {
     private var EMAIL = "email"
     private var PASSWORD = "password"
     private var myPreferences = "myPreferences"
+
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -48,6 +51,8 @@ class LoginActivity : AppCompatActivity() {
         }else{
 
             setContentView(R.layout.login)
+
+
 
             txtEmail = findViewById(R.id.loginEmail)
             txtPassword = findViewById(R.id.loginPassword)
@@ -125,6 +130,8 @@ class LoginActivity : AppCompatActivity() {
         window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN)
         // }
     }
+
+
 
 
 }

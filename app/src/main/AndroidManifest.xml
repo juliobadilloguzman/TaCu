@@ -3,6 +3,8 @@
     package="mx.tec.tacu">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
     <application
         android:allowBackup="true"
@@ -11,23 +13,37 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
-        <activity android:name=".HomeLocationActivity" android:windowSoftInputMode="stateVisible|adjustPan" android:theme="@style/AppTheme.NoActionBar"></activity>
-        <activity android:name=".ForgotPasswordActivity" android:windowSoftInputMode="stateVisible|adjustPan" android:theme="@style/AppTheme.NoActionBar"/>
-        <activity android:name=".SignUpActivity" android:windowSoftInputMode="stateVisible|adjustPan" android:theme="@style/AppTheme.NoActionBar"/>
-        <activity android:name=".LoginActivity" android:windowSoftInputMode="stateVisible|adjustPan" android:theme="@style/AppTheme.NoActionBar">
+        <activity android:name=".PerfilTaqueria"></activity>
 
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyAAA_2Ohrr87mGkfCdxm1zEOQf0bzRh_Cg" />
+
+        <activity
+            android:name=".HomeLocationActivity"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateVisible|adjustPan" />
+        <activity
+            android:name=".ForgotPasswordActivity"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateVisible|adjustPan" />
+        <activity
+            android:name=".SignUpActivity"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateVisible|adjustPan" />
+        <activity
+            android:name=".LoginActivity"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateVisible|adjustPan">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
         <activity
             android:name=".MainActivity"
-            android:label="@string/app_name">
-
-        </activity>
+            android:label="@string/app_name" />
     </application>
 
 </manifest>
