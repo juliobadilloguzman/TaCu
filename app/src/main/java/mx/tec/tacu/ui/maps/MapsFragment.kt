@@ -145,7 +145,6 @@ class MapsFragment : Fragment(), OnMapReadyCallback {
         savedInstanceState: Bundle?
     ): View? {
 
-
         val root = inflater.inflate(R.layout.fragment_maps, container, false)
 
         permisos()
@@ -158,7 +157,7 @@ class MapsFragment : Fragment(), OnMapReadyCallback {
 
         mDatabase2 = FirebaseFirestore.getInstance()
 
-        currentPosition()
+        //currentPosition()
 
         return root
     }
