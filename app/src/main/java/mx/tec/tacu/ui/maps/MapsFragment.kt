@@ -17,10 +17,7 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
-import com.google.android.gms.maps.CameraUpdateFactory
-import com.google.android.gms.maps.GoogleMap
-import com.google.android.gms.maps.OnMapReadyCallback
-import com.google.android.gms.maps.SupportMapFragment
+import com.google.android.gms.maps.*
 import com.google.android.gms.maps.model.BitmapDescriptorFactory
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.Marker
@@ -35,7 +32,6 @@ class MapsFragment : Fragment(), OnMapReadyCallback {
 
     private lateinit var mMap: GoogleMap
     private lateinit var fusedLocationClient: FusedLocationProviderClient
-    //private var mMap: GoogleMap? = null
 
     private lateinit var mDatabase2: FirebaseFirestore
 
@@ -49,14 +45,43 @@ class MapsFragment : Fragment(), OnMapReadyCallback {
     var nombre: String = ""
     var telefono: String = ""
 
-
-
     //Dimensiones del icono del marker en el mapa taquerias
     private var height = 130
     private var width = 130
 
+    companion object {
+        var mapFragment : SupportMapFragment?=null
+        val TAG: String = MapFragment::class.java.simpleName
+        fun newInstance() = MapFragment()
+    }
+
+
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+
+        val root = inflater.inflate(R.layout.fragment_maps, container, false)
+
+        permisos()
+
+        mapFragment = childFragmentManager.findFragmentById(R.id.map) as SupportMapFragment?
+        mapFragment?.getMapAsync(this)
+
+        fusedLocationClient = LocationServices.getFusedLocationProviderClient(activity!!)
+
+        mDatabase2 = FirebaseFirestore.getInstance()
+
+        currentPosition()
+
+        return root
+    }
+
 
     override fun onMapReady(googleMap: GoogleMap) {
+
+        Log.e("MENSAJE", "SI ENTRE")
 
         mMap = googleMap
 
@@ -138,30 +163,6 @@ class MapsFragment : Fragment(), OnMapReadyCallback {
         }
     }
 
-
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-
-        val root = inflater.inflate(R.layout.fragment_maps, container, false)
-
-        permisos()
-
-        (activity!!.supportFragmentManager.findFragmentById(R.id.map) as SupportMapFragment?)?.let {
-            it.getMapAsync(this)
-        }
-
-        fusedLocationClient = LocationServices.getFusedLocationProviderClient(activity!!)
-
-        mDatabase2 = FirebaseFirestore.getInstance()
-
-        //currentPosition()
-
-        return root
-    }
-
     private fun permisos() {
 
         if (ActivityCompat.checkSelfPermission(context!!, android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED &&
@@ -199,3 +200,5 @@ class MapsFragment : Fragment(), OnMapReadyCallback {
     }
 
 }
+
+
