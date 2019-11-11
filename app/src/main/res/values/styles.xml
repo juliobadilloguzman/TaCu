@@ -15,5 +15,10 @@
 
     </style>
 
+    <style name="MyRatingBar" parent="@android:style/Widget.DeviceDefault.RatingBar.Indicator">
+        <item name="android:scaleX">.5</item>
+        <item name="android:scaleY">.5</item>
+    </style>
+
 
 </resources>

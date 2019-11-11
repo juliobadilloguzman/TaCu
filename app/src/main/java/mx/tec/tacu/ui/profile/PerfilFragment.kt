@@ -17,10 +17,12 @@ import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.FirebaseFirestoreException
 import com.google.firebase.firestore.QuerySnapshot
 import com.google.gson.Gson
+import kotlinx.android.synthetic.main.fragment_profile.*
 import mx.tec.tacu.LoginActivity
 
 import mx.tec.tacu.R
 import mx.tec.tacu.model.Persona
+import mx.tec.tacu.ui.questions.PreguntasFragment
 
 class PerfilFragment : Fragment() {
 
@@ -39,6 +41,7 @@ class PerfilFragment : Fragment() {
         val root = inflater.inflate(R.layout.fragment_profile, container, false)
 
         val btnCerrarSesion = root.findViewById(R.id.btnCerrarSesion) as Button
+        val btnPreguntasFrecuentes = root.findViewById(R.id.btnQuestionsMenu) as Button
 
         val sharedPreferences = this.activity!!.getSharedPreferences(myPreferences, Context.MODE_PRIVATE)
 
@@ -114,12 +117,17 @@ class PerfilFragment : Fragment() {
 
             auth.signOut()
 
-            var intent = Intent(activity, LoginActivity::class.java)
+            val intent = Intent(activity, LoginActivity::class.java)
 
             startActivity(intent)
 
             activity!!.finish()
 
+        }
+
+        btnPreguntasFrecuentes.setOnClickListener{
+            val intent = Intent(activity, PreguntasFragment::class.java)
+            startActivity(intent)
         }
 
         return root

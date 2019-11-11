@@ -28,7 +28,7 @@
         android:gravity="center"
         android:textStyle="bold"
         android:textColor="@color/colorWhite"
-        android:text="FAQ's" />
+        android:text="@string/titleFAQS" />
 
     <com.diegodobelo.expandingview.ExpandingList
         android:id="@+id/expanding_list_main"

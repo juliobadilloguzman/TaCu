@@ -8,6 +8,17 @@
     android:layout_marginBottom="?attr/actionBarSize"
     >
 
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:background="@color/colorRed"
+        android:textSize="24sp"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:textColor="@color/colorWhite"
+        android:text="@string/titleProfile" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -83,7 +94,7 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
 
         <androidx.cardview.widget.CardView
             android:layout_width="300dp"
@@ -275,15 +286,20 @@
                         android:layout_height="match_parent"
                         android:orientation="horizontal">
 
-                        <EditText
-                            android:id="@+id/questionsMenu"
+                        <Button
+                            android:id="@+id/btnQuestionsMenu"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="0"
-                            android:drawableStart="@drawable/pass24"
-                            android:drawablePadding="10dp"
-                            android:ems="10"
-                            android:inputType="textPersonName" />
+                            android:layout_height="35dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginBottom="5dp"
+                            android:backgroundTint="@color/colorWhite"
+                            android:text="@string/FAQS"
+                            android:layout_gravity="center"
+                            android:textAllCaps="false"
+                            android:drawableLeft="@drawable/phone24"
+                            android:background="@drawable/background_button"
+                            android:textColor="@android:color/black" />
+
 
                     </LinearLayout>
 

@@ -26,21 +26,46 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/colorBlack"
-            android:textSize="24sp"
+            android:textSize="16sp"
             android:layout_gravity="center"
-            android:gravity="center"
-            android:text="TextView" />
+            android:gravity="center" />
 
-        <RatingBar
-            android:id="@+id/ratingBarTaqueria"
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:numStars="5"
-            style="?android:attr/ratingBarStyleIndicator"
-            android:scaleX=".5"
-            android:scaleY=".5"
-            android:isIndicator="true"
-            android:stepSize=".5"/>
+            android:layout_gravity="center"
+            android:orientation="horizontal">
+
+
+            <RatingBar
+                android:id="@+id/ratingBarTaqueria"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:isIndicator="true"
+                android:numStars="5"
+                android:stepSize="0.1"
+                style="@style/Widget.AppCompat.RatingBar.Small" />
+
+            <TextView
+                android:id="@+id/textViewAverage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="left"
+                android:layout_marginLeft="5dp"
+                android:textStyle="bold"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:text="4.6" />
+
+        </LinearLayout>
+        <TextView
+            android:id="@+id/textViewNumVotos"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:text="168 votos" />
 
     </LinearLayout>
 

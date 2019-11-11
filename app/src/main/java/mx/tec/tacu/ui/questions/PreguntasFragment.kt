@@ -37,9 +37,9 @@ class PreguntasFragment : Fragment() {
     }
 
     private fun createItems() {
-        addItem("Pregunta 1", arrayOf("Esta es la respuesta"), R.color.colorRed, R.drawable.arrowdown)
-        addItem("Pregunta 2", arrayOf("Dog", "Horse", "Boat"), R.color.colorRed, R.drawable.arrowdown)
-        addItem("Pregunta 3", arrayOf("Esta es otra respuesta"), R.color.colorRed, R.drawable.arrowdown)
+        addItem("Pregunta 1", arrayOf("Esta es la respuesta"), R.color.colorRed, R.drawable.down)
+        addItem("Pregunta 2", arrayOf("Dog", "Horse", "Boat"), R.color.colorRed, R.drawable.down)
+        addItem("Pregunta 3", arrayOf("Esta es otra respuesta"), R.color.colorRed, R.drawable.down)
     }
 
     private fun addItem(title: String, subItems: Array<String>, colorRes: Int, iconRes: Int) {
