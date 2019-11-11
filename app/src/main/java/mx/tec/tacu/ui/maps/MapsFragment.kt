@@ -85,7 +85,7 @@ class MapsFragment : Fragment(), OnMapReadyCallback {
 
         mMap = googleMap
 
-        val probando =  mDatabase2.collection("pruebas2")
+        val probando =  mDatabase2.collection("TAQUERIA")
 
         probando.addSnapshotListener { snapshots, e ->
 
@@ -112,8 +112,8 @@ class MapsFragment : Fragment(), OnMapReadyCallback {
                     telefono = post.telefono
 
 
-                    val marker1 = MarkerOptions().icon(BitmapDescriptorFactory.fromBitmap(iconSize())).position(LatLng(latitud,longitud))
-                    val marker2 = mMap.addMarker(marker1)
+                    //val marker1 = MarkerOptions().icon(BitmapDescriptorFactory.fromBitmap(iconSize())).position(LatLng(latitud,longitud))
+                    //val marker2 = mMap.addMarker(marker1)
 
                     mMap.setOnMarkerClickListener(object : GoogleMap.OnMarkerClickListener{
                         override fun onMarkerClick(p0: Marker?): Boolean {
@@ -145,11 +145,12 @@ class MapsFragment : Fragment(), OnMapReadyCallback {
                     */
 
 
-                    //val myMarkerOptions = MarkerOptions().icon(BitmapDescriptorFactory.fromBitmap(iconSize())).position(LatLng(latitud,longitud)).title(nombre)
+                    val myMarkerOptions = MarkerOptions().icon(BitmapDescriptorFactory.fromBitmap(iconSize())).position(LatLng(latitud,longitud))
                     //mMap.addMarker(myMarkerOptions)
 
 
-                    tmpRealTimeMarkers.add(marker2)
+                    tmpRealTimeMarkers.add(mMap.addMarker(myMarkerOptions))
+                    Log.e("MI LISTA ES:",tmpRealTimeMarkers.toString())
 
 
                 }
