@@ -23,8 +23,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#222222"
-        android:orientation="vertical"
-        >
+        android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -92,16 +91,17 @@
         </LinearLayout>
     </LinearLayout>
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
         <androidx.cardview.widget.CardView
             android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
             app:cardElevation="5sp">
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -122,15 +122,27 @@
                         android:layout_height="match_parent"
                         android:orientation="horizontal">
 
-                        <EditText
-                            android:id="@+id/nombreMenu"
+                        <LinearLayout
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="0"
-                            android:drawableStart="@drawable/profile24"
-                            android:drawablePadding="10dp"
-                            android:ems="10"
-                            android:inputType="textPersonName" />
+                            android:layout_height="match_parent"
+                            android:orientation="horizontal">
+
+                            <com.google.android.material.textfield.TextInputLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/nombreMenu"
+                                android:layout_width="280dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:drawableStart="@drawable/profile24"
+                                android:drawablePadding="10dp"
+                                android:ems="10"
+                                android:hint="@string/name" />
+                            </com.google.android.material.textfield.TextInputLayout>
+                        </LinearLayout>
+
                     </LinearLayout>
 
                 </LinearLayout>
@@ -149,15 +161,26 @@
                         android:layout_height="match_parent"
                         android:orientation="horizontal">
 
-                        <EditText
-                            android:id="@+id/apellidoMenu"
+                        <LinearLayout
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="0"
-                            android:drawableStart="@drawable/apellido242"
-                            android:drawablePadding="10dp"
-                            android:ems="10"
-                            android:inputType="textPersonName" />
+                            android:layout_height="match_parent"
+                            android:orientation="horizontal">
+
+                            <com.google.android.material.textfield.TextInputLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent">
+
+                                <com.google.android.material.textfield.TextInputEditText
+                                    android:id="@+id/apellidoMenu"
+                                    android:layout_width="280dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:drawableStart="@drawable/apellido242"
+                                    android:drawablePadding="10dp"
+                                    android:ems="10"
+                                    android:hint="@string/last_name" />
+                            </com.google.android.material.textfield.TextInputLayout>
+                        </LinearLayout>
 
                     </LinearLayout>
 
@@ -176,15 +199,26 @@
                         android:layout_height="match_parent"
                         android:orientation="horizontal">
 
-                        <EditText
-                            android:id="@+id/telefonoMenu"
+                        <LinearLayout
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="0"
-                            android:drawableStart="@drawable/phone24"
-                            android:drawablePadding="10dp"
-                            android:ems="10"
-                            android:inputType="textPersonName" />
+                            android:layout_height="match_parent"
+                            android:orientation="horizontal">
+
+                            <com.google.android.material.textfield.TextInputLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent">
+
+                                <com.google.android.material.textfield.TextInputEditText
+                                    android:id="@+id/telefonoMenu"
+                                    android:layout_width="280dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:drawableStart="@drawable/phone24"
+                                    android:drawablePadding="10dp"
+                                    android:ems="10"
+                                    android:hint="@string/phoneNumber" />
+                            </com.google.android.material.textfield.TextInputLayout>
+                        </LinearLayout>
 
                     </LinearLayout>
 
@@ -203,15 +237,26 @@
                         android:layout_height="match_parent"
                         android:orientation="horizontal">
 
-                        <EditText
-                            android:id="@+id/correoMenu"
+                        <LinearLayout
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="0"
-                            android:drawableStart="@drawable/email24"
-                            android:drawablePadding="10dp"
-                            android:ems="10"
-                            android:inputType="textPersonName" />
+                            android:layout_height="match_parent"
+                            android:orientation="horizontal">
+
+                            <com.google.android.material.textfield.TextInputLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent">
+
+                                <com.google.android.material.textfield.TextInputEditText
+                                    android:id="@+id/correoMenu"
+                                    android:layout_width="280dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:drawableStart="@drawable/email24"
+                                    android:drawablePadding="10dp"
+                                    android:ems="10"
+                                    android:hint="@string/email" />
+                            </com.google.android.material.textfield.TextInputLayout>
+                        </LinearLayout>
 
                     </LinearLayout>
 
@@ -230,15 +275,10 @@
                         android:layout_height="match_parent"
                         android:orientation="horizontal">
 
-                        <EditText
+                        <Spinner
                             android:id="@+id/generoMenu"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="0"
-                            android:drawableStart="@drawable/gender24"
-                            android:drawablePadding="10dp"
-                            android:ems="10"
-                            android:inputType="textPersonName" />
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content" />
 
                     </LinearLayout>
 
@@ -258,16 +298,22 @@
                         android:layout_height="match_parent"
                         android:orientation="horizontal">
 
-                        <EditText
-                            android:id="@+id/passwordMenu"
+                        <com.google.android.material.textfield.TextInputLayout
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="0"
-                            android:drawableStart="@drawable/pass24"
-                            android:drawablePadding="10dp"
-                            android:ems="10"
-                            android:hint="***********"
-                            android:inputType="textPersonName" />
+                            android:layout_height="match_parent"
+                            app:passwordToggleEnabled="true">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/passwordMenu"
+                                android:layout_width="280dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:drawableStart="@drawable/pass24"
+                                android:drawablePadding="10dp"
+                                android:ems="10"
+                                android:hint="@string/password"
+                                android:inputType="textPassword" />
+                        </com.google.android.material.textfield.TextInputLayout>
 
                     </LinearLayout>
 
@@ -278,36 +324,62 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:orientation="horizontal">
+                    android:layout_marginBottom="10dp"
+                    android:orientation="vertical">
 
+
+                    <Button
+                        android:id="@+id/btnQuestionsMenu"
+                        android:layout_width="match_parent"
+                        android:layout_height="35dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:backgroundTint="@color/colorWhite"
+                        android:text="@string/FAQS"
+                        android:layout_gravity="center"
+                        android:textAllCaps="false"
+                        android:drawableLeft="@drawable/phone24"
+                        android:background="@drawable/background_button"
+                        android:textColor="@android:color/black" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="horizontal">
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:orientation="vertical">
 
                         <Button
-                            android:id="@+id/btnQuestionsMenu"
-                            android:layout_width="match_parent"
-                            android:layout_height="35dp"
+                            android:id="@+id/btnEdit"
+                            android:layout_width="150dp"
+                            android:layout_height="25dp"
                             android:layout_marginTop="5dp"
                             android:layout_marginBottom="5dp"
-                            android:backgroundTint="@color/colorWhite"
-                            android:text="@string/FAQS"
+                            android:backgroundTint="@color/colorBlueEdit"
+                            android:text="@string/editAccount"
                             android:layout_gravity="center"
-                            android:textAllCaps="false"
-                            android:drawableLeft="@drawable/phone24"
+                            android:textAllCaps="true"
+                            android:textSize="11sp"
                             android:background="@drawable/background_button"
-                            android:textColor="@android:color/black" />
+                            android:textColor="@color/colorWhite" />
 
+                        <Button
+                            android:id="@+id/btnDeleteAccount"
+                            android:layout_width="150dp"
+                            android:layout_height="25dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginBottom="5dp"
+                            android:text="@string/deleteAccount"
+                            android:layout_gravity="center"
+                            android:textAllCaps="true"
+                            android:textSize="11sp"
+                            android:backgroundTint="@color/colorRed"
+                            android:background="@drawable/background_button"
+                            android:textColor="@color/colorWhite" />
 
+                        </LinearLayout>
                     </LinearLayout>
-
                 </LinearLayout>
-
-            </LinearLayout>
+            </ScrollView>
         </androidx.cardview.widget.CardView>
-    </ScrollView>
-
 
 </LinearLayout>

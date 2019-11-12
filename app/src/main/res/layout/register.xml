@@ -254,7 +254,6 @@
                                     android:hint="@string/confirm_pass"
                                     android:layout_gravity="center"
                                     android:drawableStart="@drawable/lock"
-                                    android:drawableEnd="@drawable/eye"
                                     android:drawableTint="@color/colorGrey"
                                     android:drawablePadding="5dp"
                                     android:textSize="16sp"

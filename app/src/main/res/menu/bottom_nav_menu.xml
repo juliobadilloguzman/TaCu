@@ -1,40 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <!--<item
-        android:id="@+id/navigation_home"
-        android:icon="@drawable/ic_home_black_24dp"
-        android:title="@string/title_home" />-->
+    
 
     <item
         android:id="@+id/navigation_preguntas"
-        android:icon="@drawable/helpcircle"
+        android:icon="@drawable/help"
         android:title="@string/title_preguntas" />
 
     <item
         android:id="@+id/navigation_taquerias"
-        android:icon="@drawable/list24"
+        android:icon="@drawable/list"
         android:title="@string/title_taquerias" />
 
     <item
         android:id="@+id/navigation_maps"
-        android:icon="@drawable/mapmarker"
+        android:icon="@drawable/map"
         android:title="@string/title_maps" />
 
     <item
         android:id="@+id/navigation_ranking"
-        android:icon="@drawable/star"
+        android:icon="@drawable/trophy"
         android:title="@string/title_ranking" />
 
-    <!--<item
-        android:id="@+id/navigation_dashboard"
-        android:icon="@drawable/ic_dashboard_black_24dp"
-        android:title="@string/title_dashboard" />
-
-    <item
-        android:id="@+id/navigation_notifications"
-        android:icon="@drawable/ic_notifications_black_24dp"
-        android:title="@string/title_notifications" />-->
 
     <item
         android:id="@+id/navigation_profile"

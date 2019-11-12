@@ -17,9 +17,9 @@
         <ImageView
             android:id="@+id/imageViewTaqueria"
             android:layout_width="match_parent"
-            android:layout_height="160dp"
+            android:layout_height="165dp"
             android:scaleType="fitXY"
-            app:srcCompat="@mipmap/ic_launcher" />
+            app:srcCompat="@mipmap/ic_launcher"/>
 
         <TextView
             android:id="@+id/nameTaqueria"

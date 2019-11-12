@@ -89,10 +89,13 @@
     <!--  TEXTOS  -->
     <string name="titleProfile">Mi Perfil</string>
     <string name="profileOr">|</string>
+    <string name="phoneNumber">Teléfono</string>
 
     <!--  TEXTOS  BOTONES -->
     <string name="profileLogOff">Cerrar sesión</string>
     <string name="FAQS">Preguntas Frecuentes</string>
+    <string name="editAccount">Editar datos</string>
+    <string name="deleteAccount">Borrar cuenta</string>
 
     <!--
     *********************************************************************************************************************************************

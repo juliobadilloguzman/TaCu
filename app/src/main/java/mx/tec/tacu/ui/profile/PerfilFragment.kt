@@ -10,6 +10,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
+import android.widget.Spinner
 import android.widget.TextView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.CollectionReference
@@ -52,7 +53,9 @@ class PerfilFragment : Fragment() {
         val apellido = root.findViewById(R.id.apellidoMenu) as EditText
         val telefono = root.findViewById(R.id.telefonoMenu) as EditText
         val correo = root.findViewById(R.id.correoMenu) as EditText
-        val genero = root.findViewById(R.id.generoMenu) as EditText
+        //val genero = root.findViewById(R.id.generoMenu) as EditText
+        val spinner: Spinner = root.findViewById(R.id.generoMenu)
+
         val pass = root.findViewById(R.id.passwordMenu) as EditText
 
         val nombreTitulo = root.findViewById(R.id.titulo_nombreMenu) as TextView
@@ -91,7 +94,7 @@ class PerfilFragment : Fragment() {
             apellido.setText(personFinal.apellido)
             telefono.setText(personFinal.telefono)
             correo.setText(personFinal.correo)
-            genero.setText(personFinal.sexo)
+            //genero.setText(personFinal.sexo)
             pass.setText("********")
 
             nombreTitulo.text = personFinal.nombre
@@ -126,8 +129,10 @@ class PerfilFragment : Fragment() {
         }
 
         btnPreguntasFrecuentes.setOnClickListener{
+            /*
             val intent = Intent(activity, PreguntasFragment::class.java)
             startActivity(intent)
+            */
         }
 
         return root
