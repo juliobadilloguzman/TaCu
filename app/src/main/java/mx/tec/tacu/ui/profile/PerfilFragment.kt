@@ -8,10 +8,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.EditText
-import android.widget.Spinner
-import android.widget.TextView
+import android.widget.*
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.CollectionReference
 import com.google.firebase.firestore.FirebaseFirestore
@@ -42,7 +39,7 @@ class PerfilFragment : Fragment() {
         val root = inflater.inflate(R.layout.fragment_profile, container, false)
 
         val btnCerrarSesion = root.findViewById(R.id.btnCerrarSesion) as Button
-        val btnPreguntasFrecuentes = root.findViewById(R.id.btnQuestionsMenu) as Button
+        val btnPreguntasFrecuentes = root.findViewById(R.id.btnPreguntasFrecuentes) as ImageButton
 
         val sharedPreferences = this.activity!!.getSharedPreferences(myPreferences, Context.MODE_PRIVATE)
 

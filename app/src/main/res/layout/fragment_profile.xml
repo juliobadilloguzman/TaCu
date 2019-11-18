@@ -22,7 +22,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#222222"
+        android:background="@color/colorDarkGreyProfile"
         android:orientation="vertical">
 
         <LinearLayout
@@ -32,6 +32,16 @@
             android:orientation="vertical"
             android:padding="10dp">
 
+            <ImageButton
+                android:id="@+id/btnPreguntasFrecuentes"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_marginTop="5dp"
+                android:backgroundTint="@color/colorAccent"
+                android:layout_gravity="right"
+                android:background="@drawable/background_button"
+                app:srcCompat="@drawable/help" />
+
             <TextView
                 android:id="@+id/titulo_nombreMenu"
                 android:layout_width="match_parent"
@@ -40,7 +50,7 @@
                 android:paddingBottom="5dp"
                 android:textSize="20sp"
                 android:textStyle="bold"
-                android:padding="10dp"
+                android:padding="5dp"
                 android:textColor="#FFFFFF" />
 
             <LinearLayout
@@ -300,8 +310,7 @@
 
                         <com.google.android.material.textfield.TextInputLayout
                             android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            app:passwordToggleEnabled="true">
+                            android:layout_height="match_parent">
 
                             <com.google.android.material.textfield.TextInputEditText
                                 android:id="@+id/passwordMenu"
@@ -326,21 +335,6 @@
                     android:layout_marginTop="10dp"
                     android:layout_marginBottom="10dp"
                     android:orientation="vertical">
-
-
-                    <Button
-                        android:id="@+id/btnQuestionsMenu"
-                        android:layout_width="match_parent"
-                        android:layout_height="35dp"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginBottom="5dp"
-                        android:backgroundTint="@color/colorWhite"
-                        android:text="@string/FAQS"
-                        android:layout_gravity="center"
-                        android:textAllCaps="false"
-                        android:drawableLeft="@drawable/phone24"
-                        android:background="@drawable/background_button"
-                        android:textColor="@android:color/black" />
 
                     <LinearLayout
                         android:layout_width="match_parent"

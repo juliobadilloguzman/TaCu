@@ -10,5 +10,7 @@
     <color name="colorBlack">#000000</color>
     <color name="colorRedTransparency">#CCFB4545</color>
     <color name="colorBlueEdit">#673dff</color>
+    <color name="colorDarkGrey">#828282</color>
+    <color name="colorDarkGreyProfile">#222222</color>
 
 </resources>
