@@ -1,10 +1,12 @@
 package mx.tec.tacu
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ImageView
 import android.widget.TextView
 import com.squareup.picasso.Picasso
+import kotlinx.android.synthetic.main.activity_perfil_taqueria.*
 
 class PerfilTaqueria : AppCompatActivity() {
 
@@ -18,13 +20,14 @@ class PerfilTaqueria : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_perfil_taqueria)
-
         val taqueriaCalif = intent.getStringExtra("myCalif")
         val taqueriaDescripcion = intent.getStringExtra("myDescripcion")
         val taqueriaHorario = intent.getStringExtra("myHorario")
         val taqueriaImagen = intent.getStringExtra("myImagen")
         val taqueriaNombre = intent.getStringExtra("myNombre")
         val taqueriaTelefono = intent.getStringExtra("myTelefono")
+
+        //activity_evaluation
 
         txtNombreTaqueria = findViewById(R.id.textView)
         txtCalifTaqueria = findViewById(R.id.textView3)
@@ -40,6 +43,12 @@ class PerfilTaqueria : AppCompatActivity() {
         txtTelefonoTaqueria.setText(taqueriaTelefono)
 
         Picasso.get().load(taqueriaImagen).into(iconTaqueriaImagen)
+
+        buttonEvaluar.setOnClickListener {
+            val intent = Intent(this@PerfilTaqueria,EvaluationActivity::class.java)
+            startActivity(intent)
+        }
+
 
     }
 }

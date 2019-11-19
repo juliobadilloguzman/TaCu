@@ -14,6 +14,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
         <activity android:name=".PerfilTaqueria"></activity>
+        <activity android:name=".EvaluationActivity"></activity>
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
