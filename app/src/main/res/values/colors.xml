@@ -9,6 +9,7 @@
     <color name="colorGrey">#C2C5CC</color>
     <color name="colorBlack">#000000</color>
     <color name="colorRedTransparency">#CCFB4545</color>
+    <color name="colorRedTransparency2">#D5FF4D4D</color>
     <color name="colorBlueEdit">#673dff</color>
     <color name="colorDarkGrey">#828282</color>
     <color name="colorDarkGreyProfile">#222222</color>
