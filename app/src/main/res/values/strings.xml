@@ -146,6 +146,14 @@
 
     <!--  TEXTOS  -->
     <string name="titleEvaluacion">Evaluación</string>
+    <string name="categoria1">Sabor:</string>
+    <string name="categoria2">Tamaño:</string>
+    <string name="categoria3">Atención del personal:</string>
+    <string name="categoria4">Salsas y acompañantes:</string>
+    <string name="categoria5">Precio:</string>
+
+    <!--  TEXTOS BOTONES -->
+    <string name="btnTextEvaluation">Evaluar Taquería</string>
 
 
 </resources>
