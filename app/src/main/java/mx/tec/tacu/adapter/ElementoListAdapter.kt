@@ -25,7 +25,7 @@ class ElementoListAdapter(private val context: Context, private val layout: Int,
 
         pos.text = elemento.posicion.toString()
         nombre.text= elemento.nombre
-        average.text = elemento.avg.toString()
+        average.text = elemento.calificacion.toString()
 
         return view
 
