@@ -73,7 +73,7 @@ class MapsFragment : Fragment(), OnMapReadyCallback {
 
         mDatabase2 = FirebaseFirestore.getInstance()
 
-        currentPosition()
+        //currentPosition()
 
         return root
     }

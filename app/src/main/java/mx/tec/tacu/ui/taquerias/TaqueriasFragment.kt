@@ -77,7 +77,7 @@ class TaqueriasFragment : Fragment() {
 
                 }
 
-                println(listTaquerias)
+                //println(listTaquerias)
 
                 val myRecycleView : RecyclerView = root.findViewById(R.id.listaTaquerias)
                 myRecycleView.layoutManager=GridLayoutManager(activity, 2,RecyclerView.VERTICAL, false)
