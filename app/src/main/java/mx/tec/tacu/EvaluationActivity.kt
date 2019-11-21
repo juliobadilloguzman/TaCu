@@ -23,12 +23,7 @@ class EvaluationActivity: AppCompatActivity() {
         val mLayoutSalsas = findViewById<LinearLayout>(R.id.linearSalsas)
         val mLayoutPrecio = findViewById<LinearLayout>(R.id.linearPrecio)
 
-        mLayoutSabor.setPadding(dp2px(10),dp2px(0),dp2px(10),dp2px(0))
-        mLayoutTam.setPadding(dp2px(10),dp2px(0),dp2px(10),dp2px(0))
-        mLayoutPersonal.setPadding(dp2px(10),dp2px(0),dp2px(10),dp2px(0))
-        mLayoutSalsas.setPadding(dp2px(10),dp2px(0),dp2px(10),dp2px(0))
-        mLayoutPrecio.setPadding(dp2px(10),dp2px(0),dp2px(10),dp2px(0))
-
+        applyPadding(arrayOf(mLayoutSabor,mLayoutTam,mLayoutPersonal,mLayoutSalsas,mLayoutPrecio))
 
         //BOTONES SABOR
 
@@ -170,6 +165,7 @@ class EvaluationActivity: AppCompatActivity() {
 
     }
 
+    //Funcion para hacer la animación de los botones más grandes
     private fun animationButtons(actual: Button, unselected: Array<Button>){
         actual.layoutParams = LinearLayout.LayoutParams(dp2px(70), dp2px(70))
 
@@ -178,26 +174,37 @@ class EvaluationActivity: AppCompatActivity() {
         }
     }
 
-    fun myFunction(misBotones: Array<Button>){
-        for(i in misBotones){
-            setMargins(i, 10, 0, 10, 0)
+    //Funcion que aplica un padding en el LinearLayout que contiene a los botones
+    private fun applyPadding(linear: Array<View>){
+        for (i in linear){
+            i.setPadding(dp2px(10),dp2px(0),dp2px(10),dp2px(0))
         }
     }
 
-    private fun setMargins(view: View, left: Int, top: Int, right: Int, bottom: Int) {
+    //Funcion que aplica los margenes a los botones
+    private fun myFunction(misBotones: Array<Button>){
+        for(i in misBotones){
+            setMargins(i)
+        }
+    }
+
+    //Funcion para establecer los margenes de los botones
+    private fun setMargins(view: View) {
         if (view.layoutParams is ViewGroup.MarginLayoutParams) {
             val p = view.layoutParams as ViewGroup.MarginLayoutParams
-            p.setMargins(left, top, right, bottom)
+            p.setMargins(10, 0, 10, 0)
             view.requestLayout()
         }
     }
 
-    fun dp2px(dp: Int): Int {
+    //Funcion para convertir de dp a px
+    private fun dp2px(dp: Int): Int {
         val scale = resources.displayMetrics.density
         return (dp * scale + 0.5f).toInt()
     }
 
-    fun px2dp(px: Float): Float {
+    //Funcion para convertir de px a dp
+    private fun px2dp(px: Float): Float {
         val metrics = Resources.getSystem().displayMetrics
         val dp = px / (metrics.densityDpi / 160f)
         return dp.roundToInt().toFloat()
