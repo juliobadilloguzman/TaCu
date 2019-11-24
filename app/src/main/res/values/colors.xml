@@ -5,6 +5,8 @@
     <color name="colorPrimaryDark">#FB4545</color>
     <color name="colorAccent">#D81B60</color>
     <color name="colorRed">#FB4545</color>
+    <color name="colorStrongRed">#f05545</color>
+    <color name="colorGold">#efb810</color>
     <color name="colorWhite">#FFFFFF</color>
     <color name="colorGrey">#C2C5CC</color>
     <color name="colorBlack">#000000</color>

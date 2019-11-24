@@ -50,7 +50,6 @@ limitations under the License.
             android:layout_alignParentTop="true"
             android:layout_marginStart="5dp"
             android:layout_marginTop="61dp"
-            android:layout_weight="1"
             android:src="@mipmap/ic_launcher_round"
             app:civ_border_color="@color/colorGrey"
             app:civ_border_width="2dp" />
@@ -75,7 +74,6 @@ limitations under the License.
             android:layout_marginEnd="-7dp"
             android:layout_toStartOf="@+id/imageViewThirdPlace"
             android:layout_toEndOf="@+id/imageViewSecondPlace"
-            android:layout_weight="1"
             android:src="@mipmap/ic_launcher_round"
             app:civ_border_color="@color/colorGrey"
             app:civ_border_width="2dp" />
@@ -85,9 +83,11 @@ limitations under the License.
             android:layout_width="122dp"
             android:layout_height="111dp"
             android:layout_below="@+id/imageViewFirstPlace"
-            android:layout_marginStart="-1dp"
-            android:layout_marginTop="-25dp"
-            android:layout_toEndOf="@+id/imageViewSecondPlace"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="155dp"
+            android:layout_marginTop="-26dp"
+            android:layout_marginEnd="134dp"
             android:src="@drawable/gold" />
 
         <de.hdodenhof.circleimageview.CircleImageView
@@ -98,7 +98,6 @@ limitations under the License.
             android:layout_alignParentEnd="true"
             android:layout_marginTop="69dp"
             android:layout_marginEnd="6dp"
-            android:layout_weight="1"
             android:src="@mipmap/ic_launcher_round"
             app:civ_border_color="@color/colorGrey"
             app:civ_border_width="2dp" />

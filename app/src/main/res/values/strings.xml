@@ -155,5 +155,15 @@
     <!--  TEXTOS BOTONES -->
     <string name="btnTextEvaluation">Evaluar Taquería</string>
 
+    <!--
+    *********************************************************************************************************************************************
+    PERFIL TAQUERÍAS
+    *********************************************************************************************************************************************
+    -->
+
+    <!--  TEXTOS BOTONES -->
+    <string name="btnTextGoToEvaluation">Evaluar</string>
+    <string name="btnTextGoToMap">Cómo llegar</string>
+
 
 </resources>
