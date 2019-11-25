@@ -27,6 +27,7 @@
         android:id="@+id/navigation_profile"
         android:name="mx.tec.tacu.ui.profile.PerfilFragment"
         android:label="@string/title_profile"
+
         tools:layout="@layout/fragment_profile" />
 
     <fragment

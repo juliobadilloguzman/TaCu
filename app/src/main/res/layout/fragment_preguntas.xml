@@ -17,7 +17,10 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".ui.questions.PreguntasFragment"
-    android:layout_marginBottom="?attr/actionBarSize">
+    android:layout_marginBottom="?attr/actionBarSize"
+    android:clickable="true"
+    android:focusable="true"
+    >
 
     <TextView
         android:id="@+id/textView8"

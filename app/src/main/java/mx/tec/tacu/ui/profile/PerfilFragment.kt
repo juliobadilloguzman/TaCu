@@ -1,5 +1,6 @@
 package mx.tec.tacu.ui.profile
 
+import android.app.AlertDialog
 import android.content.Context
 import android.content.Intent
 import androidx.lifecycle.ViewModelProviders
@@ -7,9 +8,11 @@ import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
+import android.view.View.GONE
 import android.view.ViewGroup
 import android.widget.*
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.firestore.CollectionReference
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.FirebaseFirestoreException
@@ -39,6 +42,7 @@ class PerfilFragment : Fragment() {
         val root = inflater.inflate(R.layout.fragment_profile, container, false)
 
         val btnCerrarSesion = root.findViewById(R.id.btnCerrarSesion) as Button
+        val btnEliminarCuenta = root.findViewById(R.id.btnDeleteAccount) as Button
         val btnPreguntasFrecuentes = root.findViewById(R.id.btnPreguntasFrecuentes) as ImageButton
 
         val sharedPreferences = this.activity!!.getSharedPreferences(myPreferences, Context.MODE_PRIVATE)
@@ -130,6 +134,78 @@ class PerfilFragment : Fragment() {
             val intent = Intent(activity, PreguntasFragment::class.java)
             startActivity(intent)
             */
+
+            val fragment = PreguntasFragment()
+            val fragmentManager = activity!!.supportFragmentManager
+            //fragmentManager.findFragmentById(R.id.navigation_profile)!!.view!!.visibility = GONE
+            val fragmentTransaction = fragmentManager.beginTransaction()
+            fragmentTransaction.replace(R.id.nav_host_fragment, fragment)
+            fragmentTransaction.addToBackStack(null)
+            fragmentTransaction.commit()
+        }
+
+        btnEliminarCuenta.setOnClickListener {
+
+            var auth: FirebaseAuth
+            auth = FirebaseAuth.getInstance()
+
+            //ELIMINARLO DE LA AUTENTICACION
+
+            var firebaseUser: FirebaseUser = auth.currentUser!!
+
+            println("EL ID DEL CURRENT USER ES: " +  firebaseUser.uid)
+
+            var builder = AlertDialog.Builder(activity!!)
+
+            builder.setTitle("¿Deseas eliminar tu cuenta?")
+                .setMessage("No podrás revertir esta acccion")
+                .setNegativeButton("Cerrar", { dialog, button->dialog.dismiss()})
+                .setPositiveButton("Aceptar") { dialog, button ->
+
+                    firebaseUser.delete()
+
+                    //ELIMINARLO DE SHARED PREFERENCES
+
+                    with(sharedPreferences.edit()) {
+                        putString(ID, EMPTY)
+                        putString(EMAIL, EMPTY)
+                        putString(PASSWORD, EMPTY)
+                        commit()
+                    }
+
+                    //ELIMINARLO DE LA BASE DE DATOS
+
+                    reference.get().addOnSuccessListener {
+                            documents ->
+
+                        var id = ""
+
+                        for(document in documents){
+                            id = document.id
+                        }
+
+                        val reference = db.collection("PERSONA").document(id)
+                        reference.delete().addOnSuccessListener {
+                            println("ELIMINADO CORRECTAMENTE")
+                        }
+
+
+                    }
+
+                    auth.signOut()
+
+                    val intent = Intent(activity, LoginActivity::class.java)
+
+                    startActivity(intent)
+
+                    activity!!.finish()
+
+                }
+                .show()
+
+
+
+
         }
 
         return root
