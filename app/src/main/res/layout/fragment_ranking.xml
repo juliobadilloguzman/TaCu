@@ -25,118 +25,134 @@ limitations under the License.
     tools:context=".ui.ranking.RankingFragment"
     android:layout_marginBottom="?attr/actionBarSize">
 
-    <TextView
-        android:id="@+id/textViewTitle"
-        android:layout_width="match_parent"
-        android:layout_height="45dp"
-        android:background="@color/colorRed"
-        android:textSize="24sp"
-        android:gravity="center"
-        android:textStyle="bold"
-        android:textColor="@color/colorWhite"
-        android:text="@string/titleRanking" />
+        <TextView
+            android:layout_height="45dp"
+            android:layout_width="match_parent"
+            android:text="@string/titleRanking"
+            android:textColor="@color/colorWhite"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:textSize="24sp"
+            android:background="@color/colorRed"
+            android:id="@+id/textViewTitle"/>
 
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        <RelativeLayout
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent">
 
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:layout_height="100dp"
+                android:layout_width="100dp"
+                android:id="@+id/imageViewSecondPlace"
+                android:layout_marginLeft="5dp"
+                android:layout_alignParentLeft="true"
+                app:civ_border_width="2dp"
+                app:civ_border_color="@color/colorGrey"
+                android:src="@mipmap/ic_launcher_round"
+                android:layout_marginTop="61dp"
+                android:layout_marginStart="5dp"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentStart="true"/>
 
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/imageViewSecondPlace"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginStart="5dp"
-            android:layout_marginTop="61dp"
-            android:src="@mipmap/ic_launcher_round"
-            app:civ_border_color="@color/colorGrey"
-            app:civ_border_width="2dp" />
+            <ImageView
+                android:id="@+id/imageView3"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_below="@+id/imageViewSecondPlace"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_marginStart="15dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="-16dp"
+                android:src="@drawable/silver" />
 
-        <ImageView
-            android:id="@+id/imageView3"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:layout_below="@+id/imageViewSecondPlace"
-            android:layout_alignParentStart="true"
-            android:layout_marginStart="15dp"
-            android:layout_marginTop="-20dp"
-            android:src="@drawable/silver" />
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:layout_height="134dp"
+                android:layout_width="151dp"
+                android:id="@+id/imageViewFirstPlace"
+                android:layout_marginLeft="5dp"
+                app:civ_border_width="2dp"
+                app:civ_border_color="@color/colorGrey"
+                android:src="@mipmap/ic_launcher_round"
+                android:layout_marginTop="5dp"
+                android:layout_marginStart="5dp"
+                android:layout_alignParentTop="true"
+                android:layout_toRightOf="@+id/imageViewSecondPlace"
+                android:layout_toLeftOf="@+id/imageViewThirdPlace"
+                android:layout_marginRight="5dp"
+                android:layout_toEndOf="@+id/imageViewSecondPlace"
+                android:layout_toStartOf="@+id/imageViewThirdPlace"
+                android:layout_marginEnd="-7dp"/>
 
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/imageViewFirstPlace"
-            android:layout_width="151dp"
-            android:layout_height="134dp"
-            android:layout_alignParentTop="true"
-            android:layout_marginStart="0dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginEnd="-7dp"
-            android:layout_toStartOf="@+id/imageViewThirdPlace"
-            android:layout_toEndOf="@+id/imageViewSecondPlace"
-            android:src="@mipmap/ic_launcher_round"
-            app:civ_border_color="@color/colorGrey"
-            app:civ_border_width="2dp" />
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="122dp"
+                android:layout_height="111dp"
+                android:layout_below="@+id/imageViewFirstPlace"
+                android:layout_alignStart="@+id/imageViewFirstPlace"
+                android:layout_alignLeft="@+id/imageViewFirstPlace"
+                android:layout_alignEnd="@+id/imageViewFirstPlace"
+                android:layout_alignRight="@+id/imageViewFirstPlace"
+                android:layout_marginStart="3dp"
+                android:layout_marginLeft="3dp"
+                android:layout_marginTop="-23dp"
+                android:layout_marginEnd="3dp"
+                android:layout_marginRight="3dp"
+                android:src="@drawable/gold" />
 
-        <ImageView
-            android:id="@+id/imageView2"
-            android:layout_width="122dp"
-            android:layout_height="111dp"
-            android:layout_below="@+id/imageViewFirstPlace"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginStart="155dp"
-            android:layout_marginTop="-26dp"
-            android:layout_marginEnd="134dp"
-            android:src="@drawable/gold" />
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:layout_height="90dp"
+                android:layout_width="90dp"
+                android:id="@+id/imageViewThirdPlace"
+                app:civ_border_width="2dp"
+                app:civ_border_color="@color/colorGrey"
+                android:src="@mipmap/ic_launcher_round"
+                android:layout_marginTop="69dp"
+                android:layout_alignParentTop="true"
+                android:layout_marginRight="6dp"
+                android:layout_marginEnd="6dp"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"/>
 
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/imageViewThirdPlace"
-            android:layout_width="90dp"
-            android:layout_height="90dp"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginTop="69dp"
-            android:layout_marginEnd="6dp"
-            android:src="@mipmap/ic_launcher_round"
-            app:civ_border_color="@color/colorGrey"
-            app:civ_border_width="2dp" />
-
-        <ImageView
-            android:id="@+id/imageView4"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:layout_below="@+id/imageViewThirdPlace"
-            android:layout_alignParentEnd="true"
-            android:layout_marginTop="-14dp"
-            android:layout_marginEnd="14dp"
-            android:src="@drawable/bronze" />
+            <ImageView
+                android:layout_height="70dp"
+                android:layout_width="70dp"
+                android:id="@+id/imageView4"
+                android:src="@drawable/bronze"
+                android:layout_marginTop="-14dp"
+                android:layout_below="@+id/imageViewThirdPlace"
+                android:layout_marginRight="14dp"
+                android:layout_marginEnd="14dp"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"/>
 
     </RelativeLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
 
         <LinearLayout
-            android:layout_width="match_parent"
+            android:orientation="vertical"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:layout_width="match_parent">
 
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent">
         </LinearLayout>
+
     </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent">
 
         <ListView
-            android:id="@+id/listRanking"
+            android:layout_height="match_parent"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
+            android:id="@+id/listRanking">
         </ListView>
 
     </LinearLayout>
