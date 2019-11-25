@@ -52,8 +52,6 @@ class LoginActivity : AppCompatActivity() {
 
             setContentView(R.layout.login)
 
-
-
             txtEmail = findViewById(R.id.loginEmail)
             txtPassword = findViewById(R.id.loginPassword)
 
@@ -63,13 +61,16 @@ class LoginActivity : AppCompatActivity() {
             ///////LOGIN
             btnLogIn.setOnClickListener{
 
+
+                //Verificar que sea email
+                if(!isEmailValid(txtEmail.text.toString().trim())){
+                    Toast.makeText(this, "Formato de correo invalido", Toast.LENGTH_SHORT).show()
+                }
                 //Verificar campos vacios
-                if(!TextUtils.isEmpty(txtEmail.text.toString()) && !TextUtils.isEmpty(txtPassword.text.toString())){
+                else if(!TextUtils.isEmpty(txtEmail.text.toString()) && !TextUtils.isEmpty(txtPassword.text.toString())){
 
                     auth.signInWithEmailAndPassword(txtEmail.text.toString(), txtPassword.text.toString())
                         .addOnCompleteListener{
-
-
 
                             //Verificamos si
                             if(it.isSuccessful){
@@ -131,6 +132,9 @@ class LoginActivity : AppCompatActivity() {
         // }
     }
 
+    fun isEmailValid(email: String): Boolean {
+        return android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()
+    }
 
 
 
