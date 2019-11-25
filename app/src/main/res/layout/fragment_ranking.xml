@@ -44,6 +44,7 @@ limitations under the License.
             <de.hdodenhof.circleimageview.CircleImageView
                 android:layout_height="100dp"
                 android:layout_width="100dp"
+                android:clickable="true"
                 android:id="@+id/imageViewSecondPlace"
                 android:layout_marginLeft="5dp"
                 android:layout_alignParentLeft="true"
@@ -53,7 +54,8 @@ limitations under the License.
                 android:layout_marginTop="61dp"
                 android:layout_marginStart="5dp"
                 android:layout_alignParentTop="true"
-                android:layout_alignParentStart="true"/>
+                android:layout_alignParentStart="true"
+                android:focusable="true" />
 
             <ImageView
                 android:id="@+id/imageView3"
@@ -70,6 +72,7 @@ limitations under the License.
             <de.hdodenhof.circleimageview.CircleImageView
                 android:layout_height="134dp"
                 android:layout_width="151dp"
+                android:clickable="true"
                 android:id="@+id/imageViewFirstPlace"
                 android:layout_marginLeft="5dp"
                 app:civ_border_width="2dp"
@@ -83,7 +86,8 @@ limitations under the License.
                 android:layout_marginRight="5dp"
                 android:layout_toEndOf="@+id/imageViewSecondPlace"
                 android:layout_toStartOf="@+id/imageViewThirdPlace"
-                android:layout_marginEnd="-7dp"/>
+                android:layout_marginEnd="-7dp"
+                android:focusable="true" />
 
             <ImageView
                 android:id="@+id/imageView2"
@@ -104,6 +108,7 @@ limitations under the License.
             <de.hdodenhof.circleimageview.CircleImageView
                 android:layout_height="90dp"
                 android:layout_width="90dp"
+                android:clickable="true"
                 android:id="@+id/imageViewThirdPlace"
                 app:civ_border_width="2dp"
                 app:civ_border_color="@color/colorGrey"
@@ -113,7 +118,8 @@ limitations under the License.
                 android:layout_marginRight="6dp"
                 android:layout_marginEnd="6dp"
                 android:layout_alignParentRight="true"
-                android:layout_alignParentEnd="true"/>
+                android:layout_alignParentEnd="true"
+                android:focusable="true" />
 
             <ImageView
                 android:layout_height="70dp"

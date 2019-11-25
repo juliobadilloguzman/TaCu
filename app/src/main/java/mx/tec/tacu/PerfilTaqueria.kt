@@ -3,6 +3,8 @@ package mx.tec.tacu
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import com.squareup.picasso.Picasso
@@ -27,6 +29,8 @@ class PerfilTaqueria : AppCompatActivity() {
         val taqueriaNombre = intent.getStringExtra("myNombre")
         val taqueriaTelefono = intent.getStringExtra("myTelefono")
 
+        val valorFlag = intent.getBooleanExtra("flag",false)
+
         //activity_evaluation
 
         txtNombreTaqueria = findViewById(R.id.textView)
@@ -47,6 +51,10 @@ class PerfilTaqueria : AppCompatActivity() {
         buttonEvaluar.setOnClickListener {
             val intent = Intent(this@PerfilTaqueria,EvaluationActivity::class.java)
             startActivity(intent)
+        }
+
+        if(valorFlag){
+            buttonEvaluar.visibility = View.GONE
         }
 
 

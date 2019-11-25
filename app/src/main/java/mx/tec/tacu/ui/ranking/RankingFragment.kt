@@ -1,5 +1,6 @@
 package mx.tec.tacu.ui.ranking
 
+import android.content.Intent
 import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -7,11 +8,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.Toast
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.Query
 import com.google.gson.Gson
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.fragment_ranking.*
+import mx.tec.tacu.PerfilTaqueria
 
 import mx.tec.tacu.R
 import mx.tec.tacu.adapter.ElementoListAdapter
@@ -31,7 +34,13 @@ class RankingFragment : Fragment() {
 
         val db: FirebaseFirestore = FirebaseFirestore.getInstance()
 
+        var myFlag = false
+
         val reference = db.collection("TAQUERIA").orderBy("calificacion", Query.Direction.DESCENDING).limit(3)
+
+        val imageFirst: ImageView = root.findViewById(R.id.imageViewFirstPlace)
+        val imageSecond: ImageView = root.findViewById(R.id.imageViewSecondPlace)
+        val imageThird: ImageView = root.findViewById(R.id.imageViewThirdPlace)
 
         reference.get()
             .addOnSuccessListener { documents ->
@@ -65,16 +74,32 @@ class RankingFragment : Fragment() {
 
                 //Sustituir imagenes en el ranking
 
-                val imageFirst: ImageView = root.findViewById(R.id.imageViewFirstPlace)
-                val imageSecond: ImageView = root.findViewById(R.id.imageViewSecondPlace)
-                val imageThird: ImageView = root.findViewById(R.id.imageViewThirdPlace)
-
                 Picasso.get().load(listTaqueriasRanking[0].imagen).into(imageFirst)
                 Picasso.get().load(listTaqueriasRanking[1].imagen).into(imageSecond)
                 Picasso.get().load(listTaqueriasRanking[2].imagen).into(imageThird)
 
-
             }
+
+        imageFirst.setOnClickListener {
+            myFlag = true
+            val intent = Intent(activity, PerfilTaqueria::class.java)
+            intent.putExtra("flag", myFlag)
+            startActivity(intent)
+        }
+
+        imageSecond.setOnClickListener {
+            myFlag = true
+            val intent = Intent(activity, PerfilTaqueria::class.java)
+            intent.putExtra("flag", myFlag)
+            startActivity(intent)
+        }
+
+        imageThird.setOnClickListener {
+            myFlag = true
+            val intent = Intent(activity, PerfilTaqueria::class.java)
+            intent.putExtra("flag", myFlag)
+            startActivity(intent)
+        }
 
         //LISTA
 
@@ -115,10 +140,11 @@ class RankingFragment : Fragment() {
 
             listRanking.adapter = adaptador
 
-
         }
 
         return root
     }
+
+
 
 }
