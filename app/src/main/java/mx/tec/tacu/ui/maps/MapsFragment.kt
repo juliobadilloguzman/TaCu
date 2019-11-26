@@ -23,9 +23,7 @@ import com.google.android.gms.maps.model.BitmapDescriptorFactory
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.Marker
 import com.google.android.gms.maps.model.MarkerOptions
-import com.google.firebase.database.DataSnapshot
-import com.google.firebase.database.DatabaseError
-import com.google.firebase.database.ValueEventListener
+import com.google.firebase.database.*
 import com.google.firebase.firestore.FirebaseFirestore
 import mx.tec.tacu.PerfilTaqueria
 
@@ -59,6 +57,7 @@ class MapsFragment : Fragment(), OnMapReadyCallback, LocationListener {
     private lateinit var fusedLocationClient: FusedLocationProviderClient
 
     private lateinit var mDatabase2: FirebaseFirestore
+    private lateinit var mDatabase: DatabaseReference
 
     var tmpRealTimeMarkers = ArrayList<Marker>()
     var realTimeMarkers = ArrayList<Marker>()
@@ -102,6 +101,7 @@ class MapsFragment : Fragment(), OnMapReadyCallback, LocationListener {
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(activity!!)
 
         mDatabase2 = FirebaseFirestore.getInstance()
+        mDatabase= FirebaseDatabase.getInstance().reference
 
         //currentPosition()
 
@@ -138,8 +138,6 @@ class MapsFragment : Fragment(), OnMapReadyCallback, LocationListener {
             }
         }
 
-
-
         probando.addSnapshotListener { snapshots, e ->
 
             probando.get().addOnSuccessListener { it ->
@@ -150,27 +148,35 @@ class MapsFragment : Fragment(), OnMapReadyCallback, LocationListener {
                         i.remove()
                     }
 
+
                     val post = it.toObject(Taqueria::class.java)
 
 
                     Log.e("RESULTADO", post.toString())
 
+                    val latitud: Double = post.latitud
+                    val longitud: Double = post.longitud
+                    /*
                     id = post.id.toString()
                     calif = post.calificacion
                     descripcion = post.descripcion
                     horario = post.horario
                     imagen = post.imagen
-                    val latitud: Double = post.latitud
-                    val longitud: Double = post.longitud
                     nombre = post.nombre
                     telefono = post.telefono
 
+                     */
 
                     //val marker1 = MarkerOptions().icon(BitmapDescriptorFactory.fromBitmap(iconSize())).position(LatLng(latitud,longitud))
                     //val marker2 = mMap.addMarker(marker1)
 
                     mMap.setOnMarkerClickListener(object : GoogleMap.OnMarkerClickListener{
                         override fun onMarkerClick(p0: Marker): Boolean {
+
+                            mDatabase.child(p0.title).addValueEventListener(vael)
+                            //probando.child(p0.title).addValueEventListener(vael)
+
+                            /*
 
                             val intent = Intent(activity, PerfilTaqueria::class.java)
                             intent.putExtra("myCalif", calif.toString())
@@ -187,6 +193,8 @@ class MapsFragment : Fragment(), OnMapReadyCallback, LocationListener {
                             Log.e("IMAGEN ", imagen)
                             Log.e("NOMBRE ", nombre)
                             Log.e("TELEFONO ", telefono)
+
+                             */
 
                             return false
                         }
@@ -214,7 +222,6 @@ class MapsFragment : Fragment(), OnMapReadyCallback, LocationListener {
                 realTimeMarkers.addAll(tmpRealTimeMarkers)
 
             }
-
         }
     }
 
