@@ -96,13 +96,7 @@ class PerfilTaqueria : AppCompatActivity() {
                 txtTelefonoTaqueria.setText(taqueriaObject.telefono)
 
                 Picasso.get().load(taqueriaObject.imagen).into(iconTaqueriaImagen)
-
             }
-
-
-
         }
-
-
     }
 }

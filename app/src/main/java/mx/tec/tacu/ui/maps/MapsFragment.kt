@@ -6,6 +6,7 @@ import android.content.pm.PackageManager
 import android.graphics.Bitmap
 import android.graphics.drawable.BitmapDrawable
 import android.location.Location
+import android.location.LocationListener
 import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
 import android.util.Log
@@ -22,13 +23,37 @@ import com.google.android.gms.maps.model.BitmapDescriptorFactory
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.Marker
 import com.google.android.gms.maps.model.MarkerOptions
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.ValueEventListener
 import com.google.firebase.firestore.FirebaseFirestore
 import mx.tec.tacu.PerfilTaqueria
 
 import mx.tec.tacu.R
 import mx.tec.tacu.model.Taqueria
 
-class MapsFragment : Fragment(), OnMapReadyCallback {
+class MapsFragment : Fragment(), OnMapReadyCallback, LocationListener {
+
+    override fun onLocationChanged(location: Location?) {
+        latitude = location!!.latitude
+        longitude = location.longitude
+
+        myPosition = LatLng(location.latitude, location.longitude)
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(myPosition, 15F))
+
+    }
+
+    override fun onStatusChanged(provider: String?, status: Int, extras: Bundle?) {
+
+    }
+
+    override fun onProviderEnabled(provider: String?) {
+
+    }
+
+    override fun onProviderDisabled(provider: String?) {
+
+    }
 
     private lateinit var mMap: GoogleMap
     private lateinit var fusedLocationClient: FusedLocationProviderClient
@@ -38,6 +63,7 @@ class MapsFragment : Fragment(), OnMapReadyCallback {
     var tmpRealTimeMarkers = ArrayList<Marker>()
     var realTimeMarkers = ArrayList<Marker>()
 
+    var id: String = ""
     var calif: Double = 0.0
     var descripcion: String = ""
     var horario: String = ""
@@ -48,6 +74,10 @@ class MapsFragment : Fragment(), OnMapReadyCallback {
     //Dimensiones del icono del marker en el mapa taquerias
     private var height = 130
     private var width = 130
+
+    var latitude: Double = 0.0
+    var longitude: Double = 0.0
+    lateinit var myPosition: LatLng
 
     companion object {
         var mapFragment : SupportMapFragment?=null
@@ -84,8 +114,31 @@ class MapsFragment : Fragment(), OnMapReadyCallback {
         Log.e("MENSAJE", "SI ENTRE")
 
         mMap = googleMap
+        mMap.isMyLocationEnabled = true
 
         val probando =  mDatabase2.collection("TAQUERIA")
+
+        val vael: ValueEventListener = object : ValueEventListener {
+            override fun onCancelled(p0: DatabaseError) {
+
+            }
+
+            override fun onDataChange(dataSnapshot: DataSnapshot) {
+                val feeds = dataSnapshot.getValue(Taqueria::class.java)
+
+                val intent = Intent(activity, PerfilTaqueria::class.java)
+                intent.putExtra("myCalif", feeds?.calificacion)
+                intent.putExtra("myDescripcion", feeds?.descripcion)
+                intent.putExtra("myHorario", feeds?.horario)
+                intent.putExtra("myImagen", feeds?.imagen)
+                intent.putExtra("myNombre", feeds?.nombre)
+                intent.putExtra("myTelefono", feeds?.telefono)
+                startActivity(intent)
+
+            }
+        }
+
+
 
         probando.addSnapshotListener { snapshots, e ->
 
@@ -102,6 +155,7 @@ class MapsFragment : Fragment(), OnMapReadyCallback {
 
                     Log.e("RESULTADO", post.toString())
 
+                    id = post.id.toString()
                     calif = post.calificacion
                     descripcion = post.descripcion
                     horario = post.horario
@@ -116,7 +170,8 @@ class MapsFragment : Fragment(), OnMapReadyCallback {
                     //val marker2 = mMap.addMarker(marker1)
 
                     mMap.setOnMarkerClickListener(object : GoogleMap.OnMarkerClickListener{
-                        override fun onMarkerClick(p0: Marker?): Boolean {
+                        override fun onMarkerClick(p0: Marker): Boolean {
+
                             val intent = Intent(activity, PerfilTaqueria::class.java)
                             intent.putExtra("myCalif", calif.toString())
                             intent.putExtra("myDescripcion", descripcion)
@@ -158,7 +213,6 @@ class MapsFragment : Fragment(), OnMapReadyCallback {
                 realTimeMarkers.clear()
                 realTimeMarkers.addAll(tmpRealTimeMarkers)
 
-
             }
 
         }
@@ -177,20 +231,7 @@ class MapsFragment : Fragment(), OnMapReadyCallback {
 
     }
 
-    private fun currentPosition() {
 
-        fusedLocationClient.lastLocation
-            .addOnSuccessListener { location: Location? ->
-                Log.e("Latitud: ", location?.latitude!!.toString())
-                Log.e("Longitud: ", location?.longitude!!.toString())
-
-                val myPosition = LatLng(location.latitude, location.longitude)
-
-                mMap.addMarker(MarkerOptions().position(myPosition))
-                mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(myPosition, 15F))
-
-            }
-    }
 
     fun iconSize(): Bitmap? {
         val bitmapdraw = resources.getDrawable(R.drawable.taco) as BitmapDrawable
