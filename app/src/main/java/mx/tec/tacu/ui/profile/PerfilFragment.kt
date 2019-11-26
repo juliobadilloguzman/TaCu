@@ -19,6 +19,7 @@ import com.google.firebase.firestore.FirebaseFirestoreException
 import com.google.firebase.firestore.QuerySnapshot
 import com.google.gson.Gson
 import kotlinx.android.synthetic.main.fragment_profile.*
+import mx.tec.tacu.Helpers.EnumTextItem
 import mx.tec.tacu.LoginActivity
 
 import mx.tec.tacu.R
@@ -26,6 +27,13 @@ import mx.tec.tacu.model.Persona
 import mx.tec.tacu.ui.questions.PreguntasFragment
 
 class PerfilFragment : Fragment() {
+
+    enum class Position {
+        deseleccion, masculino, femenino, otro
+    }
+
+    //private lateinit var sexoSpinner: Spinner
+    private var genero: String = ""
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -43,6 +51,7 @@ class PerfilFragment : Fragment() {
 
         val btnCerrarSesion = root.findViewById(R.id.btnCerrarSesion) as Button
         val btnEliminarCuenta = root.findViewById(R.id.btnDeleteAccount) as Button
+        val btnEditarCuenta = root.findViewById(R.id.btnEdit) as Button
         val btnPreguntasFrecuentes = root.findViewById(R.id.btnPreguntasFrecuentes) as ImageButton
 
         val sharedPreferences = this.activity!!.getSharedPreferences(myPreferences, Context.MODE_PRIVATE)
@@ -54,8 +63,14 @@ class PerfilFragment : Fragment() {
         val apellido = root.findViewById(R.id.apellidoMenu) as EditText
         val telefono = root.findViewById(R.id.telefonoMenu) as EditText
         val correo = root.findViewById(R.id.correoMenu) as EditText
-        //val genero = root.findViewById(R.id.generoMenu) as EditText
-        val spinner: Spinner = root.findViewById(R.id.generoMenu)
+        val password = root.findViewById(R.id.passwordMenu) as EditText
+
+        //sexoSpinner = root.findViewById(R.id.generoMenu)
+
+        /*val adaptador = ArrayAdapter<EnumTextItem<Position>>(activity!!, android.R.layout.simple_spinner_item, listOf(EnumTextItem(Position.deseleccion, "Selecciona una opcion"), EnumTextItem(Position.masculino, "Masculino"),  EnumTextItem(Position.femenino, "Femenino"), EnumTextItem(Position.otro, "Otro"))).also { adapter ->
+            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+            sexoSpinner.adapter = adapter
+        }*/
 
         val pass = root.findViewById(R.id.passwordMenu) as EditText
 
@@ -204,6 +219,63 @@ class PerfilFragment : Fragment() {
                 .show()
 
 
+
+
+        }
+
+        btnEditarCuenta.setOnClickListener {
+
+            val reference = db.collection("PERSONA").whereEqualTo("id", id)
+
+            reference.get().addOnSuccessListener { documents ->
+
+                var id = ""
+
+                for(document in documents){
+                    id = document.id
+                }
+
+                val referenceEdit = db.collection("PERSONA").document(id)
+
+                println("EL ID A EDITAR ES:" + id)
+
+                val data = HashMap<String, Any>()
+
+                data.put("nombre", nombre.text.toString())
+                data.put("apellido", apellido.text.toString())
+                data.put("telefono", telefono.text.toString())
+                data.put("correo", correo.text.toString())
+
+                println(data)
+
+                referenceEdit.update(data).addOnSuccessListener {
+
+                    Toast.makeText(context, "Cuenta actualizada correctamente", Toast.LENGTH_SHORT).show()
+
+                    nombre.setText(nombre.text.toString())
+                    apellido.setText(apellido.text.toString())
+                    telefono.setText(telefono.text.toString())
+                    correo.setText(correo.text.toString())
+
+                }.addOnFailureListener{
+                    Toast.makeText(context, "ERROR", Toast.LENGTH_SHORT).show()
+                }
+
+                //Editar contraseña de Auth
+                var auth: FirebaseAuth
+                auth = FirebaseAuth.getInstance()
+
+                var firebaseUser: FirebaseUser = auth.currentUser!!
+
+                firebaseUser.updatePassword(password.text.toString()).addOnSuccessListener {
+                    println("Contraseña editada!")
+                }
+                    .addOnFailureListener{
+                        println("ERROR AL EDITAR CONTRASEÑA")
+                    }
+
+
+            }
 
 
         }

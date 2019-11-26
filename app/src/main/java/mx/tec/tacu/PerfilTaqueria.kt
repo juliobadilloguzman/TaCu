@@ -7,8 +7,13 @@ import android.view.View
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.Query
+import com.google.gson.Gson
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_perfil_taqueria.*
+import mx.tec.tacu.model.Persona
+import mx.tec.tacu.model.Taqueria
 
 class PerfilTaqueria : AppCompatActivity() {
 
@@ -22,6 +27,7 @@ class PerfilTaqueria : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_perfil_taqueria)
+
         val taqueriaCalif = intent.getStringExtra("myCalif")
         val taqueriaDescripcion = intent.getStringExtra("myDescripcion")
         val taqueriaHorario = intent.getStringExtra("myHorario")
@@ -54,7 +60,47 @@ class PerfilTaqueria : AppCompatActivity() {
         }
 
         if(valorFlag){
+
             buttonEvaluar.visibility = View.GONE
+
+            val idTaqueriaRecibido = intent.getStringExtra("idTaqueria")
+
+            println("ID RECIBIDO: " + idTaqueriaRecibido)
+
+            val db: FirebaseFirestore = FirebaseFirestore.getInstance()
+
+            val reference = db.collection("TAQUERIA").document(idTaqueriaRecibido)
+
+            reference.get().addOnSuccessListener { document ->
+
+                //json
+                lateinit var taqueria : String
+
+                println("DOCUMENT DATA:" + document.data)
+
+                //Json para convertir el response a json
+                val json = Gson()
+
+                taqueria = json.toJson(document.data).toString()
+
+                //Almanacenaremos la persona
+                var taqueriaObject = Taqueria()
+
+                //Convertimos el json al modelo Persona
+                taqueriaObject = json.fromJson<Taqueria>(taqueria, Taqueria::class.java)
+
+                txtNombreTaqueria.setText(taqueriaObject.nombre)
+                txtCalifTaqueria.setText(taqueriaObject.calificacion.toString())
+                txtDescripcionTaqueria.setText(taqueriaObject.descripcion)
+                txtHorarioTaqueria.setText(taqueriaObject.horario)
+                txtTelefonoTaqueria.setText(taqueriaObject.telefono)
+
+                Picasso.get().load(taqueriaObject.imagen).into(iconTaqueriaImagen)
+
+            }
+
+
+
         }
 
 

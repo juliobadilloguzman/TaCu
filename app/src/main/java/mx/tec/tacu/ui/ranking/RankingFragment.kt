@@ -34,7 +34,9 @@ class RankingFragment : Fragment() {
 
         val db: FirebaseFirestore = FirebaseFirestore.getInstance()
 
-        var myFlag = false
+        var myFlag: Boolean
+
+        val listTaqueriasRanking = ArrayList<Taqueria>()
 
         val reference = db.collection("TAQUERIA").orderBy("calificacion", Query.Direction.DESCENDING).limit(3)
 
@@ -50,7 +52,7 @@ class RankingFragment : Fragment() {
 
                 var i =0
 
-                val listTaqueriasRanking = ArrayList<Taqueria>()
+
 
                 //Json para convertir el response a json
                 val json = Gson()
@@ -60,16 +62,20 @@ class RankingFragment : Fragment() {
                     //Convertimos a json la respuesta
                     taqueria = json.toJson(document.data).toString()
 
+
                     //Como esta en string, tenemos que convertirlo a un objeto JSON
                     val jsonObject = JSONObject(taqueria)
 
-                    listTaqueriasRanking.add(Taqueria(jsonObject.getString("nombre"), jsonObject.getString("telefono"),
+                    listTaqueriasRanking.add(Taqueria(document.id,jsonObject.getString("nombre"), jsonObject.getString("telefono"),
                         jsonObject.getString("descripcion"), jsonObject.getDouble("calificacion"), jsonObject.getString("horario"),
                         jsonObject.getString("imagen"), jsonObject.getDouble("latitud"), jsonObject.getDouble("longitud")))
 
                     i++
 
                 }
+
+                println(("*****TAQUERIAS RANKING***"))
+                println(listTaqueriasRanking)
 
 
                 //Sustituir imagenes en el ranking
@@ -84,6 +90,7 @@ class RankingFragment : Fragment() {
             myFlag = true
             val intent = Intent(activity, PerfilTaqueria::class.java)
             intent.putExtra("flag", myFlag)
+            intent.putExtra("idTaqueria", listTaqueriasRanking[0].id)
             startActivity(intent)
         }
 
@@ -91,6 +98,7 @@ class RankingFragment : Fragment() {
             myFlag = true
             val intent = Intent(activity, PerfilTaqueria::class.java)
             intent.putExtra("flag", myFlag)
+            intent.putExtra("idTaqueria", listTaqueriasRanking[1].id)
             startActivity(intent)
         }
 
@@ -98,6 +106,7 @@ class RankingFragment : Fragment() {
             myFlag = true
             val intent = Intent(activity, PerfilTaqueria::class.java)
             intent.putExtra("flag", myFlag)
+            intent.putExtra("idTaqueria", listTaqueriasRanking[2].id)
             startActivity(intent)
         }
 

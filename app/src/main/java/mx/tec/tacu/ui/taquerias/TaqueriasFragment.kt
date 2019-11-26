@@ -69,7 +69,7 @@ class TaqueriasFragment : Fragment() {
                     //Como esta en string, tenemos que convertirlo a un objeto JSON
                     val jsonObject = JSONObject(taqueria)
 
-                    listTaquerias.add(Taqueria(jsonObject.getString("nombre"), jsonObject.getString("telefono"),
+                    listTaquerias.add(Taqueria(document.id, jsonObject.getString("nombre"), jsonObject.getString("telefono"),
                         jsonObject.getString("descripcion"), jsonObject.getDouble("calificacion"), jsonObject.getString("horario"),
                         jsonObject.getString("imagen"), jsonObject.getDouble("latitud"), jsonObject.getDouble("longitud")))
 
