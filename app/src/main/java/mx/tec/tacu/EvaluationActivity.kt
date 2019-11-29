@@ -9,6 +9,9 @@ import android.widget.LinearLayout
 import kotlin.math.roundToInt
 import android.view.ViewGroup
 import android.view.View
+import android.widget.ImageView
+import androidx.appcompat.app.AlertDialog
+import com.squareup.picasso.Picasso
 
 
 class EvaluationActivity: AppCompatActivity() {
@@ -22,6 +25,15 @@ class EvaluationActivity: AppCompatActivity() {
         val mLayoutPersonal = findViewById<LinearLayout>(R.id.linearAtencion)
         val mLayoutSalsas = findViewById<LinearLayout>(R.id.linearSalsas)
         val mLayoutPrecio = findViewById<LinearLayout>(R.id.linearPrecio)
+
+        //Recibe datos
+        var nombre = intent.getStringExtra("nombre")
+        var imagen = intent.getStringExtra("imagen")
+
+        var imagenTaqueria: ImageView = findViewById(R.id.imageEvaluar)
+
+        nombreEvaluar.text = nombre
+        Picasso.get().load(imagen).into(imagenTaqueria)
 
         applyPadding(arrayOf(mLayoutSabor,mLayoutTam,mLayoutPersonal,mLayoutSalsas,mLayoutPrecio))
 
@@ -161,6 +173,17 @@ class EvaluationActivity: AppCompatActivity() {
         btnVeryHappy5.setOnClickListener {
             animationButtons(btnVeryHappy5, arrayOf(btnVerySad5,btnSad5,btnNeutro5,btnHappy5))
             myFunction(arrayOf(btnVerySad5,btnSad5,btnNeutro5,btnHappy5,btnVeryHappy5))
+        }
+
+        btnEvaluate.setOnClickListener {
+
+            var builder = AlertDialog.Builder(this)
+            builder.setTitle("Taqueria evaluada")
+                .setMessage("La taqueria fue correctamente evaluada")
+                .setNegativeButton("Aceptar") { dialog, button->dialog.dismiss()
+                finish() }
+                .show()
+
         }
 
     }

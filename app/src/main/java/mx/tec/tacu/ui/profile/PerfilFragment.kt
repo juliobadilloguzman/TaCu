@@ -52,7 +52,6 @@ class PerfilFragment : Fragment() {
         val btnCerrarSesion = root.findViewById(R.id.btnCerrarSesion) as Button
         val btnEliminarCuenta = root.findViewById(R.id.btnDeleteAccount) as Button
         val btnEditarCuenta = root.findViewById(R.id.btnEdit) as Button
-        val btnPreguntasFrecuentes = root.findViewById(R.id.btnPreguntasFrecuentes) as ImageButton
 
         val sharedPreferences = this.activity!!.getSharedPreferences(myPreferences, Context.MODE_PRIVATE)
 
@@ -142,21 +141,6 @@ class PerfilFragment : Fragment() {
 
             activity!!.finish()
 
-        }
-
-        btnPreguntasFrecuentes.setOnClickListener{
-            /*
-            val intent = Intent(activity, PreguntasFragment::class.java)
-            startActivity(intent)
-            */
-
-            val fragment = PreguntasFragment()
-            val fragmentManager = activity!!.supportFragmentManager
-            //fragmentManager.findFragmentById(R.id.navigation_profile)!!.view!!.visibility = GONE
-            val fragmentTransaction = fragmentManager.beginTransaction()
-            fragmentTransaction.replace(R.id.nav_host_fragment, fragment)
-            fragmentTransaction.addToBackStack(null)
-            fragmentTransaction.commit()
         }
 
         btnEliminarCuenta.setOnClickListener {

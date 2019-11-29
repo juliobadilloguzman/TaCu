@@ -134,6 +134,11 @@ class SignUpActivity : AppCompatActivity() {
                             Toast.makeText(this, "El email ya esta en uso", Toast.LENGTH_SHORT).show()
                         }else{
 
+                            println("SI ENTRE AL REGISTRO")
+
+                            println("CORREO: " + correo)
+                            println("PASSWORRD: " + password)
+
                             auth.createUserWithEmailAndPassword(correo, password)
                                 .addOnCompleteListener{
 
@@ -142,6 +147,7 @@ class SignUpActivity : AppCompatActivity() {
                                         val dbReference: CollectionReference = db.collection("PERSONA")
 
                                         val persona = Persona(FirebaseAuth.getInstance().currentUser!!.uid, nombre, apellido, correo, sexo, numeroTelefono, fechaNacimiento, creacion)
+                                        
 
                                         dbReference.add(persona)
                                             .addOnCompleteListener{
@@ -161,6 +167,9 @@ class SignUpActivity : AppCompatActivity() {
 
                                     }
 
+                                }
+                                .addOnFailureListener{
+                                    Toast.makeText(this, "ERROR AL REGISTRARSE", Toast.LENGTH_SHORT).show()
                                 }
                         }
 

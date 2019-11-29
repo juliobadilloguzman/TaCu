@@ -1,5 +1,6 @@
 package mx.tec.tacu.ui.taquerias
 
+import android.content.Intent
 import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
 import android.util.Log
@@ -13,6 +14,7 @@ import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.GeoPoint
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
+import mx.tec.tacu.PerfilTaqueria
 
 import mx.tec.tacu.R
 import mx.tec.tacu.adapter.ElementoAdapter
@@ -84,6 +86,24 @@ class TaqueriasFragment : Fragment() {
 
                 val adapter= ElementoAdapter(listTaquerias)
                 myRecycleView.adapter=adapter
+
+                adapter.onItemClick = { taqueria ->
+
+
+                    val intent = Intent(activity!!, PerfilTaqueria::class.java)
+
+                    intent.putExtra("calificacion", taqueria.calificacion.toString())
+                    println("SE MANDARA LA CALIFICACION: " + taqueria.calificacion)
+                    intent.putExtra("myDescripcion", taqueria.descripcion)
+                    intent.putExtra("myHorario", taqueria.horario)
+                    intent.putExtra("myImagen", taqueria.imagen)
+
+                    intent.putExtra("myNombre", taqueria.nombre)
+                    intent.putExtra("myTelefono", taqueria.telefono)
+
+                    activity!!.startActivity(intent)
+                }
+
 
 
 

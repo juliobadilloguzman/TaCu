@@ -10,8 +10,11 @@ import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
 import mx.tec.tacu.R
 import mx.tec.tacu.model.Taqueria
+import org.w3c.dom.Text
 
 class ElementoAdapter(var list: ArrayList<Taqueria>): RecyclerView.Adapter<ElementoAdapter.ViewHolder>() {
+
+    var onItemClick: ((Taqueria) -> Unit)? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder{
         val v= LayoutInflater.from(parent.context).inflate(R.layout.template_list_taquerias,parent,false)
@@ -26,17 +29,25 @@ class ElementoAdapter(var list: ArrayList<Taqueria>): RecyclerView.Adapter<Eleme
         holder.bindItems(list[position])
     }
 
-    class ViewHolder(view: View): RecyclerView.ViewHolder(view){
+    inner class ViewHolder(view: View): RecyclerView.ViewHolder(view){
+
+        init {
+            itemView.setOnClickListener {
+                onItemClick?.invoke(list[adapterPosition])
+            }
+        }
 
         fun bindItems(data:Taqueria){
 
             val nombre: TextView =itemView.findViewById(R.id.nameTaqueria)
             val calificacion: RatingBar =itemView.findViewById(R.id.ratingBarTaqueria)
             val image: ImageView =itemView.findViewById(R.id.imageViewTaqueria)
+            val average: TextView = itemView.findViewById(R.id.textViewAverage)
 
 
 
             nombre.text=data.nombre
+            average.text=data.calificacion.toString()
             calificacion.rating=data.calificacion.toFloat()
             Picasso.get().load(data.imagen).into(image)
 

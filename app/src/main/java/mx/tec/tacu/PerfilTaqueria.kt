@@ -4,15 +4,12 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import com.google.firebase.firestore.FirebaseFirestore
-import com.google.firebase.firestore.Query
 import com.google.gson.Gson
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_perfil_taqueria.*
-import mx.tec.tacu.model.Persona
 import mx.tec.tacu.model.Taqueria
 
 class PerfilTaqueria : AppCompatActivity() {
@@ -28,23 +25,25 @@ class PerfilTaqueria : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_perfil_taqueria)
 
-        val taqueriaCalif = intent.getStringExtra("myCalif")
+        val taqueriaCalif = intent.getStringExtra("calificacion")
         val taqueriaDescripcion = intent.getStringExtra("myDescripcion")
         val taqueriaHorario = intent.getStringExtra("myHorario")
         val taqueriaImagen = intent.getStringExtra("myImagen")
         val taqueriaNombre = intent.getStringExtra("myNombre")
         val taqueriaTelefono = intent.getStringExtra("myTelefono")
 
+        println("RECIBI CALIFICACION:" + taqueriaCalif)
+
         val valorFlag = intent.getBooleanExtra("flag",false)
 
         //activity_evaluation
 
-        txtNombreTaqueria = findViewById(R.id.textView)
+        txtNombreTaqueria = findViewById(R.id.nombreEvaluar)
         txtCalifTaqueria = findViewById(R.id.textView3)
         txtDescripcionTaqueria = findViewById(R.id.textView2)
         txtHorarioTaqueria = findViewById(R.id.textView4)
         txtTelefonoTaqueria = findViewById(R.id.textView5)
-        iconTaqueriaImagen = findViewById(R.id.imageView)
+        iconTaqueriaImagen = findViewById(R.id.imageEvaluar)
 
         txtNombreTaqueria.setText(taqueriaNombre)
         txtCalifTaqueria.setText(taqueriaCalif)
@@ -56,6 +55,8 @@ class PerfilTaqueria : AppCompatActivity() {
 
         buttonEvaluar.setOnClickListener {
             val intent = Intent(this@PerfilTaqueria,EvaluationActivity::class.java)
+            intent.putExtra("nombre", txtNombreTaqueria.text.toString())
+            intent.putExtra("imagen",taqueriaImagen.toString())
             startActivity(intent)
         }
 

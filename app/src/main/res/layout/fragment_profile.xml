@@ -32,16 +32,6 @@
             android:orientation="vertical"
             android:padding="10dp">
 
-            <ImageButton
-                android:id="@+id/btnPreguntasFrecuentes"
-                android:layout_width="35dp"
-                android:layout_height="35dp"
-                android:layout_marginTop="5dp"
-                android:backgroundTint="@color/colorAccent"
-                android:layout_gravity="right"
-                android:background="@drawable/background_button"
-                app:srcCompat="@drawable/help" />
-
             <TextView
                 android:id="@+id/titulo_nombreMenu"
                 android:layout_width="match_parent"
