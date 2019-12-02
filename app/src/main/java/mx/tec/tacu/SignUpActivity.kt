@@ -147,7 +147,7 @@ class SignUpActivity : AppCompatActivity() {
                                         val dbReference: CollectionReference = db.collection("PERSONA")
 
                                         val persona = Persona(FirebaseAuth.getInstance().currentUser!!.uid, nombre, apellido, correo, sexo, numeroTelefono, fechaNacimiento, creacion)
-                                        
+
 
                                         dbReference.add(persona)
                                             .addOnCompleteListener{
