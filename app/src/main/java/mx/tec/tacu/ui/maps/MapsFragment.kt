@@ -294,7 +294,7 @@ class MapsFragment : Fragment(), OnMapReadyCallback, LocationListener {
         val dest = "destination=" + to.latitude + "," + to.longitude
         val sensor = "sensor=false"
         val params = "$origin&$dest&$sensor"
-        return "https://maps.googleapis.com/maps/api/directions/json?$params"
+        return "https://maps.googleapis.com/maps/api/directions/json?$params&key=YOUR_API_KEY"
     }
 
     private fun permisos() {

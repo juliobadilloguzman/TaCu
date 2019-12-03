@@ -2,6 +2,7 @@ package mx.tec.tacu
 
 import android.content.res.Resources
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_evaluation.*
@@ -19,6 +20,13 @@ class EvaluationActivity: AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_evaluation)
+
+        //Variables de evaluación
+        var evalSabor : Int = 0
+        var evalTam : Int = 0
+        var evalAtencion : Int = 0
+        var evalSalsas : Int = 0
+        var evalPrecio : Int = 0
 
         val mLayoutSabor = findViewById<LinearLayout>(R.id.linearSabor)
         val mLayoutTam = findViewById<LinearLayout>(R.id.linearTam)
@@ -42,27 +50,32 @@ class EvaluationActivity: AppCompatActivity() {
         btnVerySad1.setOnClickListener {
             animationButtons(btnVerySad1, arrayOf(btnSad1,btnNeutro1,btnHappy1,btnVeryHappy1))
             myFunction(arrayOf(btnVerySad1,btnSad1,btnNeutro1,btnHappy1,btnVeryHappy1))
+            evalSabor = 1
         }
 
         btnSad1.setOnClickListener {
             animationButtons(btnSad1, arrayOf(btnVerySad1,btnNeutro1,btnHappy1,btnVeryHappy1))
             myFunction(arrayOf(btnVerySad1,btnSad1,btnNeutro1,btnHappy1,btnVeryHappy1))
+            evalSabor = 2
 
         }
 
         btnNeutro1.setOnClickListener {
             animationButtons(btnNeutro1, arrayOf(btnVerySad1,btnSad1,btnHappy1,btnVeryHappy1))
             myFunction(arrayOf(btnVerySad1,btnSad1,btnNeutro1,btnHappy1,btnVeryHappy1))
+            evalSabor = 3
         }
 
         btnHappy1.setOnClickListener {
             animationButtons(btnHappy1, arrayOf(btnVerySad1,btnSad1,btnNeutro1,btnVeryHappy1))
             myFunction(arrayOf(btnVerySad1,btnSad1,btnNeutro1,btnHappy1,btnVeryHappy1))
+            evalSabor = 4
         }
 
         btnVeryHappy1.setOnClickListener {
             animationButtons(btnVeryHappy1, arrayOf(btnVerySad1,btnSad1,btnNeutro1,btnHappy1))
             myFunction(arrayOf(btnVerySad1,btnSad1,btnNeutro1,btnHappy1,btnVeryHappy1))
+            evalSabor = 5
 
         }
 
@@ -71,26 +84,31 @@ class EvaluationActivity: AppCompatActivity() {
         btnVerySad2.setOnClickListener {
             animationButtons(btnVerySad2, arrayOf(btnSad2,btnNeutro2,btnHappy2,btnVeryHappy2))
             myFunction(arrayOf(btnVerySad2,btnSad2,btnNeutro2,btnHappy2,btnVeryHappy2))
+            evalTam = 1
         }
 
         btnSad2.setOnClickListener {
             animationButtons(btnSad2, arrayOf(btnVerySad2,btnNeutro2,btnHappy2,btnVeryHappy2))
             myFunction(arrayOf(btnVerySad2,btnSad2,btnNeutro2,btnHappy2,btnVeryHappy2))
+            evalTam = 2
         }
 
         btnNeutro2.setOnClickListener {
             animationButtons(btnNeutro2, arrayOf(btnVerySad2,btnSad2,btnHappy2,btnVeryHappy2))
             myFunction(arrayOf(btnVerySad2,btnSad2,btnNeutro2,btnHappy2,btnVeryHappy2))
+            evalTam = 3
         }
 
         btnHappy2.setOnClickListener {
             animationButtons(btnHappy2, arrayOf(btnVerySad2,btnSad2,btnNeutro2,btnVeryHappy2))
             myFunction(arrayOf(btnVerySad2,btnSad2,btnNeutro2,btnHappy2,btnVeryHappy2))
+            evalTam = 4
         }
 
         btnVeryHappy2.setOnClickListener {
             animationButtons(btnVeryHappy2, arrayOf(btnVerySad2,btnSad2,btnNeutro2,btnHappy2))
             myFunction(arrayOf(btnVerySad2,btnSad2,btnNeutro2,btnHappy2,btnVeryHappy2))
+            evalTam = 5
         }
 
         //BOTONES ATENCION
@@ -98,27 +116,32 @@ class EvaluationActivity: AppCompatActivity() {
         btnVerySad3.setOnClickListener {
             animationButtons(btnVerySad3, arrayOf(btnSad3,btnNeutro3,btnHappy3,btnVeryHappy3))
             myFunction(arrayOf(btnVerySad3,btnSad3,btnNeutro3,btnHappy3,btnVeryHappy3))
+            evalAtencion = 1
         }
 
         btnSad3.setOnClickListener {
             animationButtons(btnSad3, arrayOf(btnVerySad3,btnNeutro3,btnHappy3,btnVeryHappy3))
             myFunction(arrayOf(btnVerySad3,btnSad3,btnNeutro3,btnHappy3,btnVeryHappy3))
+            evalAtencion = 2
 
         }
 
         btnNeutro3.setOnClickListener {
             animationButtons(btnNeutro3, arrayOf(btnVerySad3,btnSad3,btnHappy3,btnVeryHappy3))
             myFunction(arrayOf(btnVerySad3,btnSad3,btnNeutro3,btnHappy3,btnVeryHappy3))
+            evalAtencion = 3
         }
 
         btnHappy3.setOnClickListener {
             animationButtons(btnHappy3, arrayOf(btnVerySad3,btnSad3,btnNeutro3,btnVeryHappy3))
             myFunction(arrayOf(btnVerySad3,btnSad3,btnNeutro3,btnHappy3,btnVeryHappy3))
+            evalAtencion = 4
         }
 
         btnVeryHappy3.setOnClickListener {
             animationButtons(btnVeryHappy3, arrayOf(btnVerySad3,btnSad3,btnNeutro3,btnHappy3))
             myFunction(arrayOf(btnVerySad3,btnSad3,btnNeutro3,btnHappy3,btnVeryHappy3))
+            evalAtencion = 5
         }
 
         //BOTONES SALSAS
@@ -126,26 +149,31 @@ class EvaluationActivity: AppCompatActivity() {
         btnVerySad4.setOnClickListener {
             animationButtons(btnVerySad4, arrayOf(btnSad4,btnNeutro4,btnHappy4,btnVeryHappy4))
             myFunction(arrayOf(btnVerySad4,btnSad4,btnNeutro4,btnHappy4,btnVeryHappy4))
+            evalSalsas = 1
         }
 
         btnSad4.setOnClickListener {
             animationButtons(btnSad4, arrayOf(btnVerySad4,btnNeutro4,btnHappy4,btnVeryHappy4))
             myFunction(arrayOf(btnVerySad4,btnSad4,btnNeutro4,btnHappy4,btnVeryHappy4))
+            evalSalsas = 2
         }
 
         btnNeutro4.setOnClickListener {
             animationButtons(btnNeutro4, arrayOf(btnVerySad4,btnSad4,btnHappy4,btnVeryHappy4))
             myFunction(arrayOf(btnVerySad4,btnSad4,btnNeutro4,btnHappy4,btnVeryHappy4))
+            evalSalsas = 3
         }
 
         btnHappy4.setOnClickListener {
             animationButtons(btnHappy4, arrayOf(btnVerySad4,btnSad4,btnNeutro4,btnVeryHappy4))
             myFunction(arrayOf(btnVerySad4,btnSad4,btnNeutro4,btnHappy4,btnVeryHappy4))
+            evalSalsas = 4
         }
 
         btnVeryHappy4.setOnClickListener {
             animationButtons(btnVeryHappy4, arrayOf(btnVerySad4,btnSad4,btnNeutro4,btnHappy4))
             myFunction(arrayOf(btnVerySad4,btnSad4,btnNeutro4,btnHappy4,btnVeryHappy4))
+            evalSalsas = 5
         }
 
         //BOTONES PRECIO
@@ -153,29 +181,42 @@ class EvaluationActivity: AppCompatActivity() {
         btnVerySad5.setOnClickListener {
             animationButtons(btnVerySad5, arrayOf(btnSad5,btnNeutro5,btnHappy5,btnVeryHappy5))
             myFunction(arrayOf(btnVerySad5,btnSad5,btnNeutro5,btnHappy5,btnVeryHappy5))
+            evalPrecio = 1
         }
 
         btnSad5.setOnClickListener {
             animationButtons(btnSad5, arrayOf(btnVerySad5,btnNeutro5,btnHappy5,btnVeryHappy5))
             myFunction(arrayOf(btnVerySad5,btnSad5,btnNeutro5,btnHappy5,btnVeryHappy5))
+            evalPrecio = 2
         }
 
         btnNeutro5.setOnClickListener {
             animationButtons(btnNeutro5, arrayOf(btnVerySad5,btnSad5,btnHappy5,btnVeryHappy5))
             myFunction(arrayOf(btnVerySad5,btnSad5,btnNeutro5,btnHappy5,btnVeryHappy5))
+            evalPrecio = 3
         }
 
         btnHappy5.setOnClickListener {
             animationButtons(btnHappy5, arrayOf(btnVerySad5,btnSad5,btnNeutro5,btnVeryHappy5))
             myFunction(arrayOf(btnVerySad5,btnSad5,btnNeutro5,btnHappy5,btnVeryHappy5))
+            evalPrecio = 4
         }
 
         btnVeryHappy5.setOnClickListener {
             animationButtons(btnVeryHappy5, arrayOf(btnVerySad5,btnSad5,btnNeutro5,btnHappy5))
             myFunction(arrayOf(btnVerySad5,btnSad5,btnNeutro5,btnHappy5,btnVeryHappy5))
+            evalPrecio = 5
         }
 
         btnEvaluate.setOnClickListener {
+
+            Log.e("SABOR:" , evalSabor.toString())
+            Log.e("TAMAÑO:" , evalTam.toString())
+            Log.e("ATENCIÓN:" , evalAtencion.toString())
+            Log.e("SALSAS:" , evalSalsas.toString())
+            Log.e("PRECIO:" , evalPrecio.toString())
+
+            /*
 
             var builder = AlertDialog.Builder(this)
             builder.setTitle("Taqueria evaluada")
@@ -183,6 +224,8 @@ class EvaluationActivity: AppCompatActivity() {
                 .setNegativeButton("Aceptar") { dialog, button->dialog.dismiss()
                 finish() }
                 .show()
+
+             */
 
         }
 
