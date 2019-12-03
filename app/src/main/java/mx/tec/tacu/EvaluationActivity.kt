@@ -1,5 +1,6 @@
 package mx.tec.tacu
 
+import android.content.Intent
 import android.content.res.Resources
 import android.os.Bundle
 import android.util.Log
@@ -11,11 +12,17 @@ import kotlin.math.roundToInt
 import android.view.ViewGroup
 import android.view.View
 import android.widget.ImageView
+import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
+import com.google.firebase.firestore.CollectionReference
+import com.google.firebase.firestore.FirebaseFirestore
 import com.squareup.picasso.Picasso
+import mx.tec.tacu.model.EvaluacionTaqueria
 
 
 class EvaluationActivity: AppCompatActivity() {
+
+    private lateinit var db: FirebaseFirestore
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,9 +41,17 @@ class EvaluationActivity: AppCompatActivity() {
         val mLayoutSalsas = findViewById<LinearLayout>(R.id.linearSalsas)
         val mLayoutPrecio = findViewById<LinearLayout>(R.id.linearPrecio)
 
+
+        db = FirebaseFirestore.getInstance()
+
+        val dbReferenceEvaluacion: CollectionReference = db.collection("EVALUAR_TAQUERIA")
+
         //Recibe datos
         var nombre = intent.getStringExtra("nombre")
         var imagen = intent.getStringExtra("imagen")
+        val idTaqueria = intent.getStringExtra("idTaqueria")
+
+        println("RECIBI ID:" + idTaqueria)
 
         var imagenTaqueria: ImageView = findViewById(R.id.imageEvaluar)
 
@@ -215,6 +230,45 @@ class EvaluationActivity: AppCompatActivity() {
             Log.e("ATENCIÓN:" , evalAtencion.toString())
             Log.e("SALSAS:" , evalSalsas.toString())
             Log.e("PRECIO:" , evalPrecio.toString())
+
+            if(evalSabor==0 && evalTam==0 && evalAtencion==0 && evalSalsas==0 &&evalPrecio==0){
+                Toast.makeText(this, "Califica todas las categorias", Toast.LENGTH_SHORT).show()
+            }else{
+
+                Log.e("MENSAJE: ", "SI ENTRE")
+
+                val evaluacion = EvaluacionTaqueria(idTaqueria!!, evalAtencion, evalPrecio, evalSabor, evalSalsas, evalTam)
+
+                println("A INSERTAR: " + evaluacion)
+
+                dbReferenceEvaluacion.add(evaluacion)
+                    .addOnCompleteListener{
+
+                        Log.e("MENSAJE: ", "SI ENTRE 2")
+
+                        if(it.isSuccessful){
+
+                            var builder = AlertDialog.Builder(this)
+                            builder.setTitle("Taqueria evaluada")
+                                .setMessage("La taqueria fue correctamente evaluada")
+                                .setNegativeButton("Aceptar") { dialog, button->dialog.dismiss()
+                                    finish() }
+                                .show()
+
+
+
+
+                        }else{
+                            Toast.makeText(this, "ERROR al registrar TAQUERIA", Toast.LENGTH_SHORT).show()
+                        }
+
+
+                    }
+                    .addOnFailureListener{
+                        Toast.makeText(this, "ERROR!!", Toast.LENGTH_SHORT).show()
+                    }
+
+            }
 
             /*
 

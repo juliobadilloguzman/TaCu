@@ -31,8 +31,8 @@ class PerfilTaqueria : AppCompatActivity() {
         val taqueriaImagen = intent.getStringExtra("myImagen")
         val taqueriaNombre = intent.getStringExtra("myNombre")
         val taqueriaTelefono = intent.getStringExtra("myTelefono")
+        val idTaqueria = intent.getStringExtra("idTaqueria")
 
-        println("RECIBI CALIFICACION:" + taqueriaCalif)
 
         val valorFlag = intent.getBooleanExtra("flag",false)
 
@@ -57,6 +57,7 @@ class PerfilTaqueria : AppCompatActivity() {
             val intent = Intent(this@PerfilTaqueria,EvaluationActivity::class.java)
             intent.putExtra("nombre", txtNombreTaqueria.text.toString())
             intent.putExtra("imagen",taqueriaImagen.toString())
+            intent.putExtra("idTaqueria",idTaqueria)
             startActivity(intent)
         }
 

@@ -89,15 +89,15 @@ class TaqueriasFragment : Fragment() {
 
                 adapter.onItemClick = { taqueria ->
 
+                    println("SE MANDARA EL ID:" + taqueria.id)
 
                     val intent = Intent(activity!!, PerfilTaqueria::class.java)
 
                     intent.putExtra("calificacion", taqueria.calificacion.toString())
-                    println("SE MANDARA LA CALIFICACION: " + taqueria.calificacion)
                     intent.putExtra("myDescripcion", taqueria.descripcion)
                     intent.putExtra("myHorario", taqueria.horario)
                     intent.putExtra("myImagen", taqueria.imagen)
-
+                    intent.putExtra("idTaqueria", taqueria.id)
                     intent.putExtra("myNombre", taqueria.nombre)
                     intent.putExtra("myTelefono", taqueria.telefono)
 
