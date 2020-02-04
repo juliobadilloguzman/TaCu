@@ -55,7 +55,7 @@ class MapsFragment : Fragment(), OnMapReadyCallback, LocationListener {
 
         myPosition = LatLng(location.latitude, location.longitude)
         println("MY POSITION: " + myPosition)
-        //mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(myPosition, 15F))
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(myPosition, 15F))
 
     }
 
@@ -71,7 +71,7 @@ class MapsFragment : Fragment(), OnMapReadyCallback, LocationListener {
 
     }
 
-    //private lateinit var mMap: GoogleMap
+    private lateinit var mMap: GoogleMap
     private lateinit var fusedLocationClient: FusedLocationProviderClient
 
     private lateinit var mDatabase2: FirebaseFirestore
@@ -145,8 +145,8 @@ class MapsFragment : Fragment(), OnMapReadyCallback, LocationListener {
 
         Log.e("MENSAJE", "SI ENTRE")
 
-       // mMap = googleMap
-        //mMap.isMyLocationEnabled = true
+       mMap = googleMap
+       mMap.isMyLocationEnabled = true
 
 
 
@@ -190,7 +190,7 @@ class MapsFragment : Fragment(), OnMapReadyCallback, LocationListener {
 
 
                     //esto lo comente
-                    /*mMap.setOnMarkerClickListener(object : GoogleMap.OnMarkerClickListener{
+                    mMap.setOnMarkerClickListener(object : GoogleMap.OnMarkerClickListener{
                         override fun onMarkerClick(p0: Marker): Boolean {
 
 
@@ -218,8 +218,7 @@ class MapsFragment : Fragment(), OnMapReadyCallback, LocationListener {
                             return false
                         }
 
-                    })*/
-
+                    })
 /*
                     mMap.setOnMarkerClickListener {
                         onMarkerClick(marker2)
@@ -228,7 +227,7 @@ class MapsFragment : Fragment(), OnMapReadyCallback, LocationListener {
 
 
                     val myMarkerOptions = MarkerOptions().title(name).icon(BitmapDescriptorFactory.fromBitmap(iconSize())).position(LatLng(latitud,longitud))
-                    //mMap.addMarker(myMarkerOptions)
+                    mMap.addMarker(myMarkerOptions)
 
 
                     //tmpRealTimeMarkers.add(mMap.addMarker(myMarkerOptions))

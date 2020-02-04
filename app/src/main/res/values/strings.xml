@@ -128,6 +128,7 @@
 
     <!--  TEXTOS  -->
     <string name="titleListTaquerias">Taquerías Participantes</string>
+    <string name="titleListTaqueriasBuscador">Buscar taquería…</string>
 
     <!--
     *********************************************************************************************************************************************

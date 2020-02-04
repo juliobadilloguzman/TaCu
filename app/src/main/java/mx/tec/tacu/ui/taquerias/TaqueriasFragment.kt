@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.SearchView
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.firestore.FirebaseFirestore
@@ -80,12 +81,24 @@ class TaqueriasFragment : Fragment() {
                 }
 
                 //println(listTaquerias)
-
+                val mySearcher : SearchView = root.findViewById(R.id.action_search)
                 val myRecycleView : RecyclerView = root.findViewById(R.id.listaTaquerias)
                 myRecycleView.layoutManager=GridLayoutManager(activity, 2,RecyclerView.VERTICAL, false)
 
                 val adapter= ElementoAdapter(listTaquerias)
                 myRecycleView.adapter=adapter
+
+                mySearcher.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+                    override fun onQueryTextSubmit(query: String?): Boolean {
+
+                        return false
+                    }
+
+                    override fun onQueryTextChange(newText: String): Boolean {
+                        //adapter.filter(newText)
+                        return false
+                    }
+                })
 
                 adapter.onItemClick = { taqueria ->
 
