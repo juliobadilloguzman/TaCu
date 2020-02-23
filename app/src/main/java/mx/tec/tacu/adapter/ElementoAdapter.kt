@@ -57,4 +57,9 @@ class ElementoAdapter(var list: ArrayList<Taqueria>): RecyclerView.Adapter<Eleme
 
     }
 
+    fun updateList(list2: ArrayList<Taqueria>){
+        list = list2
+        notifyDataSetChanged()
+    }
+
 }

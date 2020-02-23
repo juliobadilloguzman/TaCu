@@ -3,11 +3,14 @@ package mx.tec.tacu.ui.taquerias
 import android.content.Intent
 import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.EditText
 import android.widget.SearchView
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -15,6 +18,7 @@ import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.GeoPoint
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
+import kotlinx.android.synthetic.main.fragment_taquerias.*
 import mx.tec.tacu.PerfilTaqueria
 
 import mx.tec.tacu.R
@@ -25,6 +29,9 @@ import org.json.JSONObject
 
 
 class TaqueriasFragment : Fragment() {
+
+    var listTaquerias = ArrayList<Taqueria>()
+    lateinit var adapter : ElementoAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -59,7 +66,10 @@ class TaqueriasFragment : Fragment() {
 
                 var i =0
 
-                val listTaquerias = ArrayList<Taqueria>()
+
+                //val displayListTaquerias = ArrayList<Taqueria>()
+
+                lateinit var editTextSearch: EditText
 
                 //Json para convertir el response a json
                 val json = Gson()
@@ -81,24 +91,69 @@ class TaqueriasFragment : Fragment() {
                 }
 
                 //println(listTaquerias)
-                val mySearcher : SearchView = root.findViewById(R.id.action_search)
+                editTextSearch = root.findViewById(R.id.action_search)
                 val myRecycleView : RecyclerView = root.findViewById(R.id.listaTaquerias)
                 myRecycleView.layoutManager=GridLayoutManager(activity, 2,RecyclerView.VERTICAL, false)
 
-                val adapter= ElementoAdapter(listTaquerias)
+                adapter= ElementoAdapter(listTaquerias)
                 myRecycleView.adapter=adapter
 
+                editTextSearch.addTextChangedListener(object: TextWatcher{
+                    override fun afterTextChanged(s: Editable?) {
+                        filterList(s.toString())
+                    }
+
+                    override fun beforeTextChanged(
+                        s: CharSequence?,
+                        start: Int,
+                        count: Int,
+                        after: Int
+                    ) {
+                    }
+
+                    override fun onTextChanged(
+                        s: CharSequence?,
+                        start: Int,
+                        before: Int,
+                        count: Int
+                    ) {
+                    }
+
+                })
+
+
+/*
                 mySearcher.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
                     override fun onQueryTextSubmit(query: String?): Boolean {
 
-                        return false
+                        return true
                     }
 
                     override fun onQueryTextChange(newText: String): Boolean {
+
+                        if(newText.isNotEmpty()){
+
+                            displayListTaquerias.clear()
+
+                            val search = newText.toLowerCase()
+                            repeat(listTaquerias.size) {
+                                if(search in it){
+
+                                }
+                            }
+
+
+                            myRecycleView.adapter?.notifyDataSetChanged()
+
+                        } else {
+                            displayListTaquerias.clear()
+                            displayListTaquerias.addAll(listTaquerias)
+                            myRecycleView.adapter?.notifyDataSetChanged()
+                        }
                         //adapter.filter(newText)
-                        return false
+                        return true
                     }
-                })
+                })*/
 
                 adapter.onItemClick = { taqueria ->
 
@@ -123,6 +178,19 @@ class TaqueriasFragment : Fragment() {
             }
 
         return root
+    }
+
+    private fun filterList(filterItem: String) {
+        val tempList: ArrayList<Taqueria> = ArrayList()
+
+        for(d in listTaquerias){
+
+            if(filterItem in d.nombre){tempList.add(d)} else if ( filterItem in d.calificacion.toString()){tempList.add(d)}
+
+        }
+
+        adapter.updateList(tempList)
+
     }
 
 }
