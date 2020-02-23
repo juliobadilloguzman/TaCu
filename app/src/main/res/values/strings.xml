@@ -166,5 +166,16 @@
     <string name="btnTextGoToEvaluation">Evaluar</string>
     <string name="btnTextGoToMap">Cómo llegar</string>
 
+    <!--
+    *********************************************************************************************************************************************
+    PROGRESS BAR
+    *********************************************************************************************************************************************
+    -->
+
+    <!--  TEXTOS  LOADING-->
+    <string name="titleLoading">Cargando...</string>
+    <string name="titleWaiting">Por favor espere</string>
+
+
 
 </resources>

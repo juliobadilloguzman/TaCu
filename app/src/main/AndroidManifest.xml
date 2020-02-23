@@ -13,8 +13,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
-        <activity android:name=".PerfilTaqueria"></activity>
-        <activity android:name=".EvaluationActivity"></activity>
+        <activity android:name=".MyProgressBar"></activity>
+        <activity android:name=".PerfilTaqueria" />
+        <activity android:name=".EvaluationActivity" />
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"

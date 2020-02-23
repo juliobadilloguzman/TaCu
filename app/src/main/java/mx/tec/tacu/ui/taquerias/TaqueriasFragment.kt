@@ -121,40 +121,6 @@ class TaqueriasFragment : Fragment() {
 
                 })
 
-
-/*
-                mySearcher.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
-                    override fun onQueryTextSubmit(query: String?): Boolean {
-
-                        return true
-                    }
-
-                    override fun onQueryTextChange(newText: String): Boolean {
-
-                        if(newText.isNotEmpty()){
-
-                            displayListTaquerias.clear()
-
-                            val search = newText.toLowerCase()
-                            repeat(listTaquerias.size) {
-                                if(search in it){
-
-                                }
-                            }
-
-
-                            myRecycleView.adapter?.notifyDataSetChanged()
-
-                        } else {
-                            displayListTaquerias.clear()
-                            displayListTaquerias.addAll(listTaquerias)
-                            myRecycleView.adapter?.notifyDataSetChanged()
-                        }
-                        //adapter.filter(newText)
-                        return true
-                    }
-                })*/
-
                 adapter.onItemClick = { taqueria ->
 
                     println("SE MANDARA EL ID:" + taqueria.id)
@@ -171,9 +137,6 @@ class TaqueriasFragment : Fragment() {
 
                     activity!!.startActivity(intent)
                 }
-
-
-
 
             }
 

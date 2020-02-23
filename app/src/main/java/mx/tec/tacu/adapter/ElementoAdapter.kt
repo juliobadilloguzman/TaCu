@@ -50,7 +50,6 @@ class ElementoAdapter(var list: ArrayList<Taqueria>): RecyclerView.Adapter<Eleme
             average.text=data.calificacion.toString()
             calificacion.rating=data.calificacion.toFloat()
             Picasso.get().load(data.imagen).into(image)
-
             calificacion.isFocusable = false
 
         }
