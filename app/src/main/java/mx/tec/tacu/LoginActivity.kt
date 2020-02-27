@@ -6,9 +6,11 @@ import android.content.pm.PackageManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
+import android.view.View
 import android.view.WindowManager
 import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
+import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import com.google.firebase.auth.FirebaseAuth
@@ -21,6 +23,7 @@ class LoginActivity : AppCompatActivity() {
     private lateinit var txtEmail: EditText
     private lateinit var txtPassword: EditText
     private lateinit var auth: FirebaseAuth
+
 
     //Shared Preferences
     private var EMPTY = ""
@@ -36,7 +39,12 @@ class LoginActivity : AppCompatActivity() {
 
         val sharedPreferences = getSharedPreferences(myPreferences, Context.MODE_PRIVATE)
 
+
         hideKeyboard()
+
+        val pBar = MyProgressBar.loading
+        pBar.visibility = View.VISIBLE
+
 
         //Verificar que haya un usuario
         if(sharedPreferences.getString(EMAIL, EMPTY) != EMPTY){
@@ -103,6 +111,8 @@ class LoginActivity : AppCompatActivity() {
                 }
 
             }
+
+            pBar.visibility = View.INVISIBLE
 
             ////////Ir a el registro
             btnCreateAccount.setOnClickListener{
