@@ -63,7 +63,6 @@
                             android:layout_height="wrap_content"
                             android:text="@string/terms"
                             android:gravity="center"
-                            android:layout_marginEnd="10dp"
                             android:layout_marginStart="15dp"
                             />
 
