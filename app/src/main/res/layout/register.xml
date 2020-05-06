@@ -65,115 +65,7 @@
                             android:layout_height="wrap_content"
                             android:orientation="vertical">
 
-                            <!--NOMBRE-->
 
-                            <com.google.android.material.textfield.TextInputLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent">
-
-                                <com.google.android.material.textfield.TextInputEditText
-                                    android:id="@+id/registerName"
-                                    android:layout_width="280dp"
-                                    android:layout_height="wrap_content"
-                                    android:ems="10"
-                                    android:inputType="textPersonName"
-                                    android:hint="@string/name"
-                                    android:layout_gravity="center"
-                                    android:drawableStart="@drawable/user"
-                                    android:drawableTint="@color/colorGrey"
-                                    android:textSize="16sp"
-                                    android:drawablePadding="5dp" />
-                            </com.google.android.material.textfield.TextInputLayout>
-
-                            <!--APELLIDO-->
-
-                            <com.google.android.material.textfield.TextInputLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent">
-
-                                <com.google.android.material.textfield.TextInputEditText
-                                    android:id="@+id/registerLastName"
-                                    android:layout_width="280dp"
-                                    android:layout_height="wrap_content"
-                                    android:ems="10"
-                                    android:inputType="textPersonName"
-                                    android:hint="@string/last_name"
-                                    android:layout_gravity="center"
-                                    android:drawableStart="@drawable/user"
-                                    android:drawableTint="@color/colorGrey"
-                                    android:textSize="16sp"
-                                    android:drawablePadding="5dp" />
-                            </com.google.android.material.textfield.TextInputLayout>
-
-                            <!--TELEFONO-->
-
-                            <com.google.android.material.textfield.TextInputLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent">
-
-                                <com.google.android.material.textfield.TextInputEditText
-                                    android:id="@+id/registerPhone"
-                                    android:layout_width="280dp"
-                                    android:layout_height="wrap_content"
-                                    android:ems="10"
-                                    android:hint="@string/phone"
-                                    android:layout_gravity="center"
-                                    android:drawableStart="@drawable/phone"
-                                    android:drawableTint="@color/colorGrey"
-                                    android:drawablePadding="5dp"
-                                    android:textSize="16sp"
-                                    android:inputType="phone" />
-                            </com.google.android.material.textfield.TextInputLayout>
-
-                            <!--CORREO-->
-
-                            <com.google.android.material.textfield.TextInputLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent">
-
-                                <com.google.android.material.textfield.TextInputEditText
-                                    android:id="@+id/registerEmail"
-                                    android:layout_width="280dp"
-                                    android:layout_height="wrap_content"
-                                    android:ems="10"
-                                    android:hint="@string/email"
-                                    android:layout_gravity="center"
-                                    android:drawableStart="@drawable/at"
-                                    android:drawableTint="@color/colorGrey"
-                                    android:drawablePadding="5dp"
-                                    android:textSize="16sp"
-                                    android:inputType="textEmailAddress" />
-                            </com.google.android.material.textfield.TextInputLayout>
-
-                            <!--FECHA DE NACIMIENTO-->
-
-                            <EditText
-                                android:id="@+id/registerBirth"
-                                android:layout_width="280dp"
-                                android:layout_height="wrap_content"
-                                android:ems="10"
-                                android:hint="@string/birthday"
-                                android:layout_gravity="center"
-                                android:drawableStart="@drawable/date"
-                                android:drawableTint="@color/colorGrey"
-                                android:drawablePadding="5dp"
-                                android:textSize="16sp"
-                                android:inputType="date"
-                                android:focusable="false"
-                                android:clickable="true"/>
-
-                            <!--GENERO-->
-
-                            <TextView
-                                android:id="@+id/textViewGenre"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:padding="3dp"
-                                android:gravity="left"
-                                android:textSize="16sp"
-                                android:layout_marginStart="15dp"
-                                android:layout_weight="1"
-                                android:text="@string/genre" />
 
                             <LinearLayout
                                 android:layout_width="match_parent"
@@ -262,20 +154,40 @@
 
                             <!--TERMINOS Y CONDICIONES-->
 
-                            <CheckBox
-                                android:id="@+id/registerConditions"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:text="@string/conditions"
-                                android:fontFamily="sans-serif-condensed-light"
-                                android:textColor="#00D0FF"
-                                android:textStyle="bold"
-                                android:layout_marginTop="10dp"
-                                android:layout_marginBottom="10dp"
-                                android:layout_marginLeft="35dp"
-                                />
-
                             <!--REGISTRARME-->
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="horizontal">
+
+                                <CheckBox
+                                    android:id="@+id/registerConditions"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:layout_marginLeft="35dp"
+                                    android:layout_marginTop="10dp"
+                                    android:layout_marginBottom="10dp"
+                                    android:layout_weight="1"
+                                    android:gravity="center" />
+
+                                <Button
+                                    android:id="@+id/btnTerms"
+                                    style="?android:attr/borderlessButtonStyle"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="0"
+                                    android:translationX="-25dp"
+                                    android:background="@android:color/transparent"
+                                    android:fontFamily="sans-serif-condensed-light"
+                                    android:text="@string/conditions"
+                                    android:textColor="#00D0FF"
+                                    android:textStyle="bold"
+                                    android:gravity="center"
+                                    android:textAllCaps="false"
+                                    />
+                            </LinearLayout>
 
                             <Button
                                 android:id="@+id/btnRegister"

@@ -42,8 +42,8 @@ class LoginActivity : AppCompatActivity() {
 
         hideKeyboard()
 
-        val pBar = MyProgressBar.loading
-        pBar.visibility = View.VISIBLE
+        //val pBar = MyProgressBar.loading
+        //pBar.visibility = View.VISIBLE
 
 
         //Verificar que haya un usuario
@@ -112,7 +112,7 @@ class LoginActivity : AppCompatActivity() {
 
             }
 
-            pBar.visibility = View.INVISIBLE
+            //pBar.visibility = View.INVISIBLE
 
             ////////Ir a el registro
             btnCreateAccount.setOnClickListener{

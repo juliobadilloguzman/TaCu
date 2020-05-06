@@ -103,6 +103,11 @@ class SignUpActivity : AppCompatActivity() {
 
         }
 
+        btnTerms.setOnClickListener{
+            val intent = Intent(this, TermsConditions::class.java)
+            startActivity(intent)
+        }
+
         btnRegisterLogIn.setOnClickListener{
             val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)

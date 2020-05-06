@@ -54,7 +54,7 @@ class MapsFragment : Fragment(), OnMapReadyCallback, LocationListener {
 
 
         myPosition = LatLng(location.latitude, location.longitude)
-        println("MY POSITION: " + myPosition)
+        //println("MY POSITION: " + myPosition)
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(myPosition, 15F))
 
     }
@@ -126,10 +126,12 @@ class MapsFragment : Fragment(), OnMapReadyCallback, LocationListener {
         mDatabase2 = FirebaseFirestore.getInstance()
 
 
-        //val URL = getURL(from,taqueriaHard)
-        //GetDirection(URL).execute()
+        val URL = getURL(myPosition,taqueriaHard)
+        GetDirection(URL).execute()
 
-        //Log.e("LINK",URL)
+        println("MY POSITION: " + URL)
+
+        Log.e("LINK",URL)
 
         //currentPosition()
 
@@ -245,7 +247,7 @@ class MapsFragment : Fragment(), OnMapReadyCallback, LocationListener {
     }
 
 
-    /*inner class GetDirection(val url: String): AsyncTask<Void,Void,List<List<LatLng>>>(){
+    inner class GetDirection(val url: String): AsyncTask<Void,Void,List<List<LatLng>>>(){
         override fun doInBackground(vararg params: Void?): List<List<LatLng>> {
             val client = OkHttpClient()
             val request = Request.Builder().url(url).build()
@@ -288,14 +290,15 @@ class MapsFragment : Fragment(), OnMapReadyCallback, LocationListener {
             mMap.addPolyline(lineoption)
         }
 
-    }*/
+    }
 
     private fun getURL(from : LatLng, to : LatLng) : String {
         val origin = "origin=" + from.latitude + "," + from.longitude
         val dest = "destination=" + to.latitude + "," + to.longitude
         val sensor = "sensor=false"
         val params = "$origin&$dest&$sensor"
-        return "https://maps.googleapis.com/maps/api/directions/json?$params&key=YOUR_API_KEY"
+
+        return "https://maps.googleapis.com/maps/api/directions/json?$params&key=AIzaSyBPe_X-wSmQCQWGSLWh0Okny2eEObxK-LQ"
     }
 
     private fun permisos() {
